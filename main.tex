@@ -8,6 +8,12 @@
     urlcolor=blue
 }
 
+\newcommand{\urllsdnasc}{https://lsdnasc.byu.edu}
+\newcommand{\urlglobusfilelisting}{https://docs.globus.org/api/transfer/file_operations/\#list\_directory\_contents}
+\newcommand{\urlglobusindex}{https://docs.globus.org/api/search/overview/\#search\_indices}
+\newcommand{\urlglobustransfer}{https://docs.globus.org/api/transfer/}
+\newcommand{\urlglobussearch}{https://docs.globus.org/api/search/}
+\newcommand{\urlglobustaskmonitoring}{https://docs.globus.org/api/transfer/task/}
 
 \author{Ammon Knaupp}
 \title{Frontend Specification}
@@ -21,29 +27,10 @@
 \input{chapter_summary.tex}
 
 \chapter{Globus APIs and concepts}
-\section{Globus Collections}
-\section{File operations}
-\section{Task submission}
-\section{Task management}
-\section{Search}
-\subsection{The search index}
-\subsection{Querying}
-\section{ACL management}
+\input{chapter_globus_apis.tex}
 
 \chapter{Movies page}
-\section{Summary}
-\section{Table}
-\section{Pop-up windows}
-\subsection{Movies on run run\_id}
-\subsection{Sharing of movie movie\_id}
-\subsection{View movie directory}
-\subsection{Analyses associated with movie movie\_id}
-\section{Actions}
-\subsection{Share}
-\subsection{Download}
-\subsection{Upload}
-\subsection{Unshare}
-\subsection{Remove}
+\input{chapter_movies.tex}
 
 \chapter{Active Transfers page}
 \section{summary}

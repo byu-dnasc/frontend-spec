@@ -1,0 +1,27 @@
+% Chapter: Globus APIs and concepts
+
+The new DNASC web pages will get and put data using REST APIs administered by Globus, a platform with services geared toward managing research data. Globus APIs return JSON data representing various things such as tabular data, file system contents, and file operations.
+\section{Globus Collections}
+The DNASC maintains a Globus “Collection” which is essentially a file system which can be made accessible to any Globus user using the Globus platform (in some documentation, you may see the term “Endpoint” used synonymously with “Collection”).
+
+\section{File operations}
+A simple, straightforward objective which will be useful in implementing the new web pages is the \href{\urlglobusfilelisting}{listing of files} in the DNASC Globus collection.
+
+\section{Task submission}
+The Movies page will need to initiate file transfers via the Globus Transfer API. This can be accomplished by submitting requests for files on the DNASC Globus collection to be transferred to a Globus collection on a DNASC PC (or the opposite direction).
+
+It may be useful if the DNASC website could redirect the user to the Globus web app.
+
+\section{Task management}
+From the \href{\urlglobustaskmonitoring}{\uline{documentation}}, “Transfer and delete are asynchronous operations, and result in a background task being created. The task id is returned from successful submission, and can be used to monitor the progress of the task”. Task monitoring is needed in the Active Transfers page.
+
+\section{Search}
+
+\subsection{The search index}
+The new website needs to keep track of file metadata (such as paths, formats and sizes) as well as tabular data about lab operations and users. Luckily, Globus provides a database service accessible through its Search API. An “index” has been prepared to support the new DNASC web functionality. The index is maintained by a backend running on a server administered by BYU ORC.
+
+\subsection{Querying}
+Most of the data that will be displayed in tables to the user will come from the search index. Some fields can simply be read from the database, but others must be computed by executing a query. In contrast to other types of databases, a search index is optimized for searching and retrieving data based on keywords and phrases rather than structured queries.
+
+\section{ACL management}
+Globus users can be granted access to specific files and directories on a given collection. This is accomplished by maintaining a set of access rules. When a user of the new website goes to share a new dataset with a DNASC customer, a new access rule will be created granting the specific customer access to their data by specifying a directory or file path.
