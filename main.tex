@@ -1,0 +1,97 @@
+\documentclass{report}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+
+\hypersetup{
+    % colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+
+\author{Ammon Knaupp}
+\title{Frontend Specification}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\chapter{Summary}
+\input{chapter_summary.tex}
+
+\chapter{Globus APIs and concepts}
+\section{Globus Collections}
+\section{File operations}
+\section{Task submission}
+\section{Task management}
+\section{Search}
+\subsection{The search index}
+\subsection{Querying}
+\section{ACL management}
+
+\chapter{Movies page}
+\section{Summary}
+\section{Table}
+\section{Pop-up windows}
+\subsection{Movies on run run\_id}
+\subsection{Sharing of movie movie\_id}
+\subsection{View movie directory}
+\subsection{Analyses associated with movie movie\_id}
+\section{Actions}
+\subsection{Share}
+\subsection{Download}
+\subsection{Upload}
+\subsection{Unshare}
+\subsection{Remove}
+
+\chapter{Active Transfers page}
+\section{summary}
+\section{task listing}
+\section{Failed transfers}
+
+\chapter{Users page}
+\section{Summary}
+\section{Table}
+\section{Pop-up windows}
+\subsection{Movies shared with user\_name}
+\subsection{Movie details}
+\section{Actions}
+\subsection{Create new user}
+\subsection{Delete user}
+\subsection{Edit user}
+
+\chapter{Drives page}
+\section{Summary}
+\section{Table}
+\section{Actions}
+
+\appendix
+
+\chapter{The Files table}
+
+\chapter{Globus API endpoints}
+\section{Updating collection access rules}
+\section{Task submission}
+\section{Task management}
+\section{File operations}
+
+\chapter{Data models}
+\section{Frontend objects}
+\subsection{download\_request}
+\subsection{upload\_request}
+\subsection{transfer\_task}
+\section{Database objects}
+\subsection{movie}
+\subsection{analysis}
+\subsection{user}
+\section{Real-time State of Globus Collection}
+\subsection{is\_online}
+\subsection{get\_analyses}
+
+\chapter{Globus Search queries}
+\section{Basic querying}
+\section{Complex queries}
+
+
+\end{document}

@@ -1,0 +1,35 @@
+
+The BYU DNA Sequencing Center (DNASC) provides state-of-the-art DNA sequencing services to internal and external 
+users. An essential part of the provision of these services is the sharing and storage of files generated in the 
+center.
+
+The DNASC website \href{https://lsdnasc.byu.edu}{\uline{lsdnasc.byu.edu}} will get three new pages, accessible through links in a dropdown 
+listing called ``Data''. Each page will consist mainly of tabular data which will include links to popup windows with 
+additional data and actions. The Users and Drives tables will be populated with data collected from frontend 
+users. The data in the Movies table will be maintained by a backend. All data will be read in from and written 
+to a database (i.e. a Globus ``\href{https://docs.globus.org/api/search/overview/#search\_indices}{\uline{index}}'') using the 
+\href{https://docs.globus.org/api/search/}{\uline{Globus Search web API}}. The frontend will also have functionality 
+to initiate downloading, uploading, and sharing of files located on a storage system administered by BYU Office 
+of Research Computing (ORC) via the \href{https://docs.globus.org/api/transfer/}{\uline{Globus Transfer web API}}.
+
+In general, the new pages can be templated after the existing DNASC pages such as the ``Plate History'' page. This 
+includes functions such as table filters and a search bar. 
+% add screenshots as supplementary materials
+These modified screenshots of the ``Plate History'' page 
+demonstrate how each new page should look.
+
+\section{Aims of this specification}
+
+This spec aims to:
+
+\begin{itemize}
+  \item Detail all aspects of the expanded website and its features.
+  \item Provide instructions from a high level.
+\end{itemize}
+
+\section{References to externally documented terms}
+
+This specification will detail essential data models and logic. A special font will be used to indicate a model 
+or function defined in this specification, or endpoints or properties belonging to a Globus API. Links to API 
+documentation are also provided.
+
