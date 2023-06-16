@@ -1,22 +1,5 @@
 \documentclass{report}
-\usepackage{hyperref}
-\usepackage[normalem]{ulem}
-
-\hypersetup{
-    % colorlinks=true,
-    linkcolor=blue,
-    urlcolor=blue
-}
-
-\newcommand{\urllsdnasc}{https://lsdnasc.byu.edu}
-\newcommand{\urlglobusfilelisting}{https://docs.globus.org/api/transfer/file_operations/\#list\_directory\_contents}
-\newcommand{\urlglobusindex}{https://docs.globus.org/api/search/overview/\#search\_indices}
-\newcommand{\urlglobustransfer}{https://docs.globus.org/api/transfer/}
-\newcommand{\urlglobussearch}{https://docs.globus.org/api/search/}
-\newcommand{\urlglobustaskmonitoring}{https://docs.globus.org/api/transfer/task/}
-
-\author{Ammon Knaupp}
-\title{Frontend Specification}
+\usepackage{preamble}
 
 \begin{document}
 
@@ -57,24 +40,11 @@
 
 \chapter{The Files table}
 
-\chapter{Globus API endpoints}
-\section{Updating collection access rules}
-\section{Task submission}
-\section{Task management}
-\section{File operations}
+\chapter{Globus API endpoints\label{appendix:globusapis}}
+\input{appendix_globus_apis.tex}
 
 \chapter{Data models}
-\section{Frontend objects}
-\subsection{download\_request}
-\subsection{upload\_request}
-\subsection{transfer\_task}
-\section{Database objects}
-\subsection{movie}
-\subsection{analysis}
-\subsection{user}
-\section{Real-time State of Globus Collection}
-\subsection{is\_online}
-\subsection{get\_analyses}
+\input{appendix_models.tex}
 
 \chapter{Globus Search queries}
 \section{Basic querying}

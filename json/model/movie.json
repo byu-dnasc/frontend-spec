@@ -1,12 +1,12 @@
 {
-    "schema": { "property name": "description" },
+    "headers": [ "property name", "description" ],
     "properties": {
         "movie_id": "The movie ID",
         "run_id": "The run ID",
         "date": "The time at which the movie was created",
         "user_name": "The name of a user",
-        "instrument_name": "Sequel II or Revio",
-        "sample_type": "HiFi (default), Iso-Seq, MAS-Seq, or Amplicons",
+        "instrument_name": "\"Sequel II\" or \"Revio\"",
+        "sample_type": "\"HiFi\" (default), \"Iso-Seq\", \"MAS-Seq\", or \"Amplicons\"",
         "sample_name": "A string",
         "num_shares": "The number of access rules granting access to this movie's path",
         "files": "The number of files associated with this movie"

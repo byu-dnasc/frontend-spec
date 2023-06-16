@@ -1,0 +1,13 @@
+{
+    "headers": [ "property name", "description" ],
+    "properties": {
+        "recursive": true,
+        "destination_endpoint_id": "DNASC_EP_ID",
+        "source_endpoint_id": "User specified endpoint ID",
+        "source_path": "A path prefixed with the path of a drive to a movie directory",
+        "destination_path": "\"/\"",
+        "verify_checksum": false,
+        "label": "A string containing the sum of all bytes across all movie files",
+        "filter_rules": "A list of filter rules"
+    }
+}

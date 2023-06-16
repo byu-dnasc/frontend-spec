@@ -1,0 +1,10 @@
+{
+    "headers": [ "property name", "description" ],
+    "properties": {
+        "transfer_type": "\"Download\" if the DNASC Globus endpoint is the source, else \"Upload\". Use task document property source_endpoint_id.",
+        "bytes_transfered": "Current total number of bytes transferred. Use the value of task document property bytes_transferred.",
+        "transfer_size": "Integer read from label property in the task document",
+        "progress_percentage": "bytes_transfered / transfer_size * 100, rounded to nearest integer"
+    }
+}
+

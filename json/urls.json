@@ -1,0 +1,17 @@
+{
+    "lsdnasc": "https://lsdnasc.byu.edu",
+    "globus": "https://www.globus.org",
+    "globusfilelisting": "https://docs.globus.org/api/transfer/file_operations/#list_directory_contents",
+    "globusindex": "https://docs.globus.org/api/search/overview/#search_indices",
+    "globustransfer": "https://docs.globus.org/api/transfer/",
+    "globussearch": "https://docs.globus.org/api/search/",
+    "globustaskmonitoring": "https://docs.globus.org/api/transfer/task/",
+    "globustransferitem": "https://docs.globus.org/api/transfer/task_submit/#transfer_item_fields",
+    "globustransferrecursive": "https://docs.globus.org/api/transfer/task_submit/#recursive_directory",
+    "globusfilterrules": "https://docs.globus.org/api/transfer/task_submit/#filter_rules",
+    "globustaskdocument": "https://docs.globus.org/api/transfer/task/#task_document",
+    "globuslistaccessrules": "https://docs.globus.org/api/transfer/acl/#rest_access_get_list",
+    "globusgettaskbyid": "https://docs.globus.org/api/transfer/task/#get_task_by_id",
+    "globuscanceltaskbyid": "https://docs.globus.org/api/transfer/task/#cancel_task_by_id",
+    "globusgettasklist": "https://docs.globus.org/api/transfer/task/#get_task_list"
+} 

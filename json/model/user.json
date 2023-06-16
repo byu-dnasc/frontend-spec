@@ -1,0 +1,13 @@
+{
+    "headers": [ "property name", "description" ],
+    "properties": {
+        "user_name": "String of alphabetic and spaces",
+        "latest_movie_date": "Date of most recent movie",
+        "latest_movie_id": "ID of latest movie",
+        "num_movies": "integer",
+        "num_sharing": "Number of movies currently sharing via Globus",
+        "user_email": "",
+        "globus_id": ""
+    }
+
+}

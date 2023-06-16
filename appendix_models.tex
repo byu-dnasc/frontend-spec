@@ -1,0 +1,42 @@
+
+The following tables containing name-value pairs represent objects which will 
+be used on the frontend. Some objects are generated using the search index and 
+others come from input collected by a user of the website.
+
+\section{Frontend objects}
+These objects are put together on the frontend.
+
+\subsection{\texttt{download\_request}}
+A \texttt{download\_request} is an instance of a Globus \linkglobustransferitem
+{\texttt{transfer\_item}}. It follows the \linkglobustransferrecursive{rules} laid 
+out for transferring a directory.
+
+\input{table/download_request.tex}
+
+See the documentation \linkglobusfilterrules{here} for filter rules.
+
+\subsection{\texttt{upload\_request}}
+An \texttt{upload\_request} is an instance of a Globus \linkglobustransferitem
+{\texttt{transfer\_item}}. It follows the \linkglobustransferrecursive{rules} laid 
+out for transferring a directory. See the documentation here for \linkglobusfilterrules
+{filter rules}.
+
+\input{table/upload_request.tex}
+
+\subsection{\texttt{transfer\_task}}
+A \texttt{transfer\_task} object is based on values found in a \linkglobustaskdocument
+{Task document} obtained using \hyperref[section:taskmanagement]{this} Globus API 
+described in Appendix \ref{appendix:globusapis}.
+
+\input{table/transfer_task.tex}
+
+\section{Database objects}
+\subsection{\texttt{movie}}
+\input{table/movie.tex}
+\subsection{\texttt{analysis}}
+\subsection{\texttt{user}}
+\input{table/user.tex}
+\section{Real-time State of Globus Collection}
+\subsection{is\_online}
+\subsection{get\_analyses}
+
