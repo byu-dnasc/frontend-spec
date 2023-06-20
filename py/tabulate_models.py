@@ -23,32 +23,35 @@ def latex_quotes(string):
     return modified_string
 
 def tabulate_json(model_name):
+
     # Read data from JSON file
     with open(f'json/model/{model_name}.json') as file:
         data = json.load(file)
 
-    # extract header values from JSON
-    headers = data['headers']
-
-    # capitalize each word in each header
-    headers = [header.title() for header in headers]
-
     # extract property names and descriptions from JSON
     table_data = []
-    for property_name, description in data['properties'].items():
-        # Convert quotes to LaTeX quotes
+    for property_name, item in data['properties'].items():
+        description = item['description']
+        # Convert any double quotes to LaTeX quotes
         if type(description) == str:
             description = latex_quotes(description)
         table_data.append([property_name, description])
 
     # Generate LaTeX code for the table
-    table_code = tabulate(table_data, headers=headers, tablefmt='latex_booktabs')
+    headers = ["Property Name", "Description"]
+    table_code = tabulate(table_data, headers=headers, tablefmt='latex')
 
-    # Replace the first column with a column of width 4cm
-    table_code = table_code.replace(r'{tabular}{ll}', r'{tabular}{p{4cm}p{6cm}}', 1)
+    # allow line wrapping in the second column
+    table_code = table_code.replace(r'{tabular}', r'{tabularx}', 2)
+    table_code = table_code.replace(r'{ll}', r'{\textwidth}{l|X}', 1)
+
+    # enclose all property names in \texttt{}
+    for property_name in data['properties'].keys():
+        property_name = property_name.replace('_', '\_')
+        table_code = table_code.replace(property_name, r'\texttt{' + property_name + r'}')
 
     # Write the LaTeX code to a file
-    with open(f'table/{model_name}.tex', 'w') as file:
+    with open(f'table/{model_name}_model.tex', 'w') as file:
         file.write(table_code)
 
 # collect model names from json/model

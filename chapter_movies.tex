@@ -1,3 +1,4 @@
+% Chapter: Movies page
 
 \section{Summary}
 The Movies page has the most functionality and most complex functionality. Also, 
@@ -10,9 +11,25 @@ Each row in the movie table will have a column for each of the following propert
 belonging to the movie object. Rows of movie data should be sorted by date. The 
 cells of some columns serve as buttons to open a pop-up window.
 
+\begin{table}[h]
+    \input{table/movie_view.tex}
+    \caption{Movies table}
+\end{table}
+
 \section{Pop-up windows}
+
 \subsection{Movies on run run\_id}
+List of movies that ran on run \texttt{run\_id}. Rows should be the same as in the main 
+Movies table. This functionality could also be implemented by a filter being applied 
+to the main Movies table.
+
 \subsection{Sharing of movie movie\_id}
+List of users who have been granted access to this movie. Rows should contain the 
+same fields as those in the main Users table. First, get an 
+\hyperref[section:updatingcollectionaccessrules]{up-to-date list of access rules} 
+to determine which users have access to this movie. Then, use this information 
+to filter out the appropriate \texttt{user} records.
+
 \subsection{View movie directory}
 \subsection{Analyses associated with movie movie\_id}
 \section{Actions}

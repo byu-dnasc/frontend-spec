@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{array}
+
+\begin{document}
+\begin{table}
+\centering
+\begin{tabularx}{\textwidth}{|X|>{\centering\arraybackslash}X|X|}
+\hline
+Column 1 & 2 (Shrinks) & Column 3 \\
+\hline
+Long content that needs to wrap & Short content & Long content that needs to wrap \\
+\hline
+\end{tabularx}
+\caption{A table with a column that shrinks to fit content.}
+\label{tab:shrink}
+\end{table}
+
+\end{document}

@@ -1,3 +1,4 @@
+% tables are "floating" out of place. this is a default behavior for report and srcreprt
 
 The following tables containing name-value pairs represent objects which will 
 be used on the frontend. Some objects are generated using the search index and 
@@ -8,35 +9,68 @@ These objects are put together on the frontend.
 
 \subsection{\texttt{download\_request}}
 A \texttt{download\_request} is an instance of a Globus \linkglobustransferitem
-{\texttt{transfer\_item}}. It follows the \linkglobustransferrecursive{rules} laid 
-out for transferring a directory.
+{\texttt{transfer\_item}}. It follows the \linkglobustransferrecursive{rules} 
+laid out for transferring a directory.
 
-\input{table/download_request.tex}
-
-See the documentation \linkglobusfilterrules{here} for filter rules.
+\begin{table}[h] % Placement options: h (here), t (top), b (bottom), p (page)
+    \input{table/download_request_model.tex}
+    \caption{Download Request Model. See the documentation for filter rules \linkglobusfilterrules{here}.}
+\end{table}
 
 \subsection{\texttt{upload\_request}}
 An \texttt{upload\_request} is an instance of a Globus \linkglobustransferitem
 {\texttt{transfer\_item}}. It follows the \linkglobustransferrecursive{rules} laid 
-out for transferring a directory. See the documentation here for \linkglobusfilterrules
-{filter rules}.
+out for transferring a directory.
 
-\input{table/upload_request.tex}
+\begin{table}[h] % Placement options: h (here), t (top), b (bottom), p (page)
+    \input{table/upload_request_model.tex}
+    \caption{Upload Request Model. See the documentation for filter rules \linkglobusfilterrules{here}.}
+\end{table}
 
 \subsection{\texttt{transfer\_task}}
 A \texttt{transfer\_task} object is based on values found in a \linkglobustaskdocument
-{Task document} obtained using \hyperref[section:taskmanagement]{this} Globus API 
+{Task document} obtained using \linkinternaltaskmanagement{this} Globus API 
 described in Appendix \ref{appendix:globusapis}.
 
-\input{table/transfer_task.tex}
+\begin{table}[h] % Placement options: h (here), t (top), b (bottom), p (page)
+    \input{table/transfer_task_model.tex}
+    \caption{Transfer Task Model.}
+\end{table}
 
 \section{Database objects}
+
 \subsection{\texttt{movie}}
-\input{table/movie.tex}
+\begin{table}[h] % Placement options: h (here), t (top), b (bottom), p (page)
+    \input{table/movie_model.tex}
+    \caption{Movie Model.}
+\end{table}
+
 \subsection{\texttt{analysis}}
+
 \subsection{\texttt{user}}
-\input{table/user.tex}
+
+\begin{table}[h] % Placement options: h (here), t (top), b (bottom), p (page)
+    \input{table/user_model.tex}
+    \caption{User Model.}
+\end{table}
+
 \section{Real-time State of Globus Collection}
+
+As often as possible, the state of the Globus collection should be obtained using a Globus API 
+(by listing files or access rules, etc.) as opposed to storing information about the state in 
+the database. This is because the state of the Globus collection can be changed at any time, 
+DNASC website users not being the only agents of this change.
+
+This being the case, the following functions must be implemented:
+
 \subsection{is\_online}
+
+This function would make sense as a method in a movie class. It returns True if a given movie 
+is available in the Globus collection. Arguments to this function would be the collection ID 
+and the path of the movie. Add specific API call.
+
 \subsection{get\_analyses}
 
+This function would make sense as a method in a movie class. It returns a list of analysis 
+objects (if any). The implementation is relatively complex as it involves accessing file 
+listings in the Globus collection. Call 

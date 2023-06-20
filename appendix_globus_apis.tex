@@ -1,5 +1,6 @@
+% Appendix: Globus API endpoints
 
-\section{Updating collection access rules}
+\section{Updating collection access rules\label{section:updatingcollectionaccessrules}}
 
 Applications:
 \begin{itemize}
@@ -19,11 +20,11 @@ This will be used for uploads, downloads, and deletions.
 
 \section{Task management\label{section:taskmanagement}}
 
-\linkglobusgettaskbyid{Get task by id}: \texttt{GET /task/task\_id}
-
-\linkglobuscanceltaskbyid{Cancel task by id}: \texttt{POST /task/task\_id/cancel}
-
-\linkglobusgettasklist{Get active tasks}: \texttt{GET /task\_list?filter=status:ACTIVE}
+\begin{description}
+  \item[\linkglobusgettaskbyid{Get task by id}:] \texttt{GET /task/task\_id} 
+  \item[\linkglobuscanceltaskbyid{Cancel task by id}:] \texttt{POST /task/task\_id/cancel}
+  \item[\linkglobusgettasklist{Get active tasks}:] \texttt{GET /task\_list?filter=status:ACTIVE}
+\end{description}
 
 \section{File operations}
 

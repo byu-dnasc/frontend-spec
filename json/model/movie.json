@@ -1,14 +1,58 @@
-{
-    "headers": [ "property name", "description" ],
+{ 
     "properties": {
-        "movie_id": "The movie ID",
-        "run_id": "The run ID",
-        "date": "The time at which the movie was created",
-        "user_name": "The name of a user",
-        "instrument_name": "\"Sequel II\" or \"Revio\"",
-        "sample_type": "\"HiFi\" (default), \"Iso-Seq\", \"MAS-Seq\", or \"Amplicons\"",
-        "sample_name": "A string",
-        "num_shares": "The number of access rules granting access to this movie's path",
-        "files": "The number of files associated with this movie"
+        "movie_id": { 
+            "description": "The movie ID",
+            "column name": "movie ID",
+            "type": "string",
+            "pop-up window": ""
+        },
+        "run_id": {
+            "description": "The run ID",
+            "column name": "run ID", 
+            "type": "string",
+            "pop-up window": "movies on run run_id"
+        },
+        "date_str": {
+            "description": "The time at which the movie was created",
+            "column name": "date", 
+            "type": "string",
+            "pop-up window": ""
+        },
+        "user_name": {
+            "description": "The name of user who submitted the movie", 
+            "column name": "submitted by", 
+            "type": "string",
+            "pop-up window": ""
+        },
+        "instrument_name": {
+            "description": "\"Sequel II\" or \"Revio\"",
+            "column name": "instrument", 
+            "type": "string",
+            "pop-up window": ""
+        },
+        "sample_type": {
+            "description": "\"HiFi\" (default), \"Iso-Seq\", \"MAS-Seq\", or \"Amplicons\"",
+            "column name": "sample type", 
+            "type": "string",
+            "pop-up window": ""
+        },
+        "sample_name": {
+            "description": "The name of the sample",
+            "column name": "sample name", 
+            "type": "string",
+            "pop-up window": ""
+        },
+        "num_shares": {
+            "description": "The number of access rules granting access to this movie's path",
+            "column name": "shares", 
+            "type": "integer",
+            "pop-up window": "users with access to movie movie_id"
+        },
+        "num_analyses": {
+            "description": "The number of analyses associated with this movie",
+            "column name": "analyses", 
+            "type": "integer",
+            "pop-up window": "analyses associated with movie movie_id"
+        }
     }
 }

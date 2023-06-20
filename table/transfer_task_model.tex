@@ -1,0 +1,10 @@
+\begin{tabularx}{\textwidth}{l|X}
+\hline
+ Property Name       & Description                                                                                                              \\
+\hline
+ \texttt{transfer\_type}       & ``Download'' if the DNASC Globus endpoint is the source, else ``Upload''. Use task document property source\_endpoint\_id. \\
+ \texttt{bytes\_transferred}   & Current total number of bytes transferred. Use the value of task document property \texttt{bytes\_transferred}.                    \\
+ \texttt{transfer\_size}       & Read from label property in the task document                                                                            \\
+ \texttt{progress\_percentage} & bytes\_transfered / \texttt{transfer\_size} * 100, rounded to nearest integer                                                       \\
+\hline
+\end{tabularx}

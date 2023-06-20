@@ -1,13 +1,36 @@
 {
-    "headers": [ "property name", "description" ],
     "properties": {
-        "recursive": true,
-        "destination_endpoint_id": "DNASC_EP_ID",
-        "source_endpoint_id": "User specified endpoint ID",
-        "source_path": "A path prefixed with the path of a drive to a movie directory",
-        "destination_path": "\"/\"",
-        "verify_checksum": false,
-        "label": "A string containing the sum of all bytes across all movie files",
-        "filter_rules": "A list of filter rules"
+        "recursive": {
+            "type": "boolean",
+            "description": "Always true"
+        },
+        "destination_endpoint_id": {
+            "type": "string",
+            "description": "DNASC_EP_ID"
+        },
+        "source_endpoint_id": {
+            "type": "string",
+            "description": "User specified endpoint ID"
+        },
+        "source_path": {
+            "type": "string",
+            "description": "A path prefixed with the path of a drive to a movie directory"
+        },
+        "destination_path": {
+            "type": "string",
+            "description": "\"/\""
+        },
+        "verify_checksum": {
+            "type": "boolean",
+            "description": "false for now"
+        },
+        "label": {
+            "type": "string",
+            "description": "A string containing the total number of bytes across all movie files"
+        },
+        "filter_rules": {
+            "type": "array",
+            "description": "A list of filter rules"
+        }
     }
 }

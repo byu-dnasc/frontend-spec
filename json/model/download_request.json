@@ -1,14 +1,37 @@
 {
-    "headers": [ "property name", "description" ],
     "properties": {
-        "recursive": true,
-        "destination_endpoint_id": "User specified endpoint ID",
-        "source_endpoint_id": "DNASC_EP_ID",
-        "source_path": "A path within the DNASC Globus collection of a movie directory",
-        "destination_path": "A path to a drive",
-        "verify_checksum": false,
-        "label": "A string containing the total number of bytes across all movie files",
-        "filter_rules": "A list of filter rules"
+        "recursive": {
+            "type": "boolean",
+            "description": "Always true"
+        },
+        "destination_endpoint_id": {
+            "type": "string",
+            "description": "User specified endpoint ID"
+        },
+        "source_endpoint_id": {
+            "type": "string",
+            "description": "DNASC_EP_ID"
+        },
+        "source_path": {
+            "type": "string",
+            "description": "A path within the DNASC Globus collection of a movie directory"
+        },
+        "destination_path": {
+            "type": "string",
+            "description": "A path to a drive"
+        },
+        "verify_checksum": {
+            "type": "boolean",
+            "description": "false for now"
+        },
+        "label": {
+            "type": "string",
+            "description": "A string containing the total number of bytes across all movie files"
+        },
+        "filter_rules": {
+            "type": "array",
+            "description": "A list of filter rules"
+        }
     }
 }
 

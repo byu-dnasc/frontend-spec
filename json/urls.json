@@ -13,5 +13,6 @@
     "globuslistaccessrules": "https://docs.globus.org/api/transfer/acl/#rest_access_get_list",
     "globusgettaskbyid": "https://docs.globus.org/api/transfer/task/#get_task_by_id",
     "globuscanceltaskbyid": "https://docs.globus.org/api/transfer/task/#cancel_task_by_id",
-    "globusgettasklist": "https://docs.globus.org/api/transfer/task/#get_task_list"
+    "globusgettasklist": "https://docs.globus.org/api/transfer/task/#get_task_list",
+    "globusbrowseendpoint": "https://docs.globus.org/api/helper-pages/browse-endpoint"
 } 

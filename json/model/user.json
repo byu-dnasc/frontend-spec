@@ -1,13 +1,32 @@
 {
-    "headers": [ "property name", "description" ],
     "properties": {
-        "user_name": "String of alphabetic and spaces",
-        "latest_movie_date": "Date of most recent movie",
-        "latest_movie_id": "ID of latest movie",
-        "num_movies": "integer",
-        "num_sharing": "Number of movies currently sharing via Globus",
-        "user_email": "",
-        "globus_id": ""
+        "user_name": {
+            "description": "String of alphabetic and spaces",
+            "type": "string"
+        },
+        "latest_movie_date": {
+            "description": "Date of latest movie",
+            "type": "string"
+        }, 
+        "latest_movie_id": {
+            "description": "ID of latest movie",
+            "type": "string"
+        },
+        "num_movies": {
+            "description": "Number of movies sequenced for this user all time",
+            "type": "integer"
+        },
+        "num_sharing": {
+            "description": "Number of movies currently sharing via Globus",
+            "type": "integer"
+        },
+        "user_email": {
+            "description": "Email address of user",
+            "type": "string"
+        },
+        "globus_id": {
+            "description": "Globus ID of user",
+            "type": "string"
+        }
     }
-
 }

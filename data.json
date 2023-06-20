@@ -1,9 +1,0 @@
-{
-  "headers": ["Name", "Age", "Country"],
-  "rows": [
-    ["John", 25, "USA"],
-    ["Alice", 30, "Canada"],
-    ["Mark", 22, "Australia"],
-    ["Emily", 27, "UK"]
-  ]
-}
