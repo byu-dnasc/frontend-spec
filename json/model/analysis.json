@@ -1,0 +1,14 @@
+{ 
+    "properties": {
+        "analysis_type": { 
+            "description": "The type of analysis",
+            "column name": "Type",
+            "type": "string"
+        },
+        "job_number": { 
+            "description": "The id number of the job which produced the analysis data",
+            "column name": "SMRT job number",
+            "type": "string"
+        }
+    }
+}
