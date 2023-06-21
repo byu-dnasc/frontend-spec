@@ -6,7 +6,8 @@
         },
         "latest_movie_date": {
             "description": "Date of latest movie",
-            "type": "string"
+            "type": "string",
+            "pop-up window": "movie details"
         }, 
         "latest_movie_id": {
             "description": "ID of latest movie",
@@ -18,7 +19,8 @@
         },
         "num_sharing": {
             "description": "Number of movies currently sharing via Globus",
-            "type": "integer"
+            "type": "integer",
+            "pop-up window": "movies shared with user_name"
         },
         "user_email": {
             "description": "Email address of user",

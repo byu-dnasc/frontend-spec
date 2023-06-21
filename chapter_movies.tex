@@ -39,9 +39,58 @@ Provide a link to open the Globus web app. See \linkglobusbrowseendpoint{link}.
 A pop-up window displaying a table of all analyses associated with the movie. An analysis 
 is a dataset derived from primary movie data.
 
+\begin{table}[h]
+    %\input{table/analysis_view.tex}
+    \caption{Movie action availability}
+\end{table}
+
 \section{Actions}
+
+Each of these actions is initiated with respect to a user-specified movie. I am open for 
+suggestions on exactly how to present these actions to the user. One thing to consider is 
+that a given action is only applicable given the right conditions.
+
+\begin{table}[h]
+    \input{table/movie_action_availabilities.tex}
+    \caption{Movie action availability}
+\end{table}
+
 \subsection{Share}
-\subsection{Unshare}
+
+The share action is used to grant a given DNASC customer access to a movie. To accomplish 
+this, post an access rule object to \texttt{/endpoint/endpoint\_xid/access}. The access rule 
+needs to include the following:
+
+\begin{itemize}
+    \item \texttt{user.globus\_id}
+    \item \texttt{movie.sample\_name}
+\end{itemize}
+
+This rule will grant the user access to the primary movie data. From there, the backend will 
+create additional access rules so that the user can access any analyses associated with the 
+movie.
+
+\emph{Will the user receive an automated message from Globus?}
+
 \subsection{Download}
+
+The download action is used to copy a given movie to an endpoint specified by the user. The 
+user must provide the following info to submit a download task:
+
+\begin{itemize}
+    \item Movie
+    \item Destination endpoint id
+    \item (optional) destination drive letter
+\end{itemize}
+
+\begin{description}
+    \item[label:] Upon submitting the task, give the task a label which is the total number 
+                  of bytes across all movie files to be transferred.
+\end{description}
+
 \subsection{Upload}
+
+\subsection{Unshare}
+
+\subsection{Remove}
 

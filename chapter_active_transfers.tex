@@ -1,0 +1,32 @@
+% Chapter: Active Transfers
+
+\section{Summary}
+
+The simplest page, the Active Transfers page will show users all movies in the
+process of being downloaded or uploaded. As soon as a transfer is successfully 
+initiated using the movies page, the task will appear on the Active Transfers page 
+as part of a listing of all active transfers. This will help the user keep track 
+of the progress of active transfers, as well as give the user the opportunity to 
+cancel any active transfer. 
+
+The transfers page should be similar to the Activity page in the Globus web app, 
+but simpler. In contrast to the Globus web app, only active transfers will be 
+visible. Any successfully completed transfer can be identified by checking the 
+Movies table for the ``Online'' status of the movie in question.
+
+If a transfer fails, it can either be resubmitted, or the user can troubleshoot 
+the failure by logging into the Globus web app.
+
+\section{Task listing}
+
+Tasks listed on the Active Transfers page originate from a Globus API. Refresh 
+the list of tasks every 30 seconds.
+
+\begin{table}[h]
+    %\input{table/analysis_view.tex}
+    \caption{Active Transfers listing}
+\end{table}
+
+\section{Failed transfers}
+
+What to do if a transfer fails? Just nothing?
