@@ -3,8 +3,7 @@
         "movie_id": { 
             "description": "The movie ID",
             "column name": "movie ID",
-            "type": "string",
-            "pop-up window": ""
+            "type": "string"
         },
         "run_id": {
             "description": "The run ID",
@@ -15,32 +14,27 @@
         "date_str": {
             "description": "The time at which the movie was created",
             "column name": "date", 
-            "type": "string",
-            "pop-up window": ""
+            "type": "string"
         },
         "user_name": {
             "description": "The name of user who submitted the movie", 
             "column name": "submitted by", 
-            "type": "string",
-            "pop-up window": ""
+            "type": "string"
         },
         "instrument_name": {
             "description": "\"Sequel II\" or \"Revio\"",
             "column name": "instrument", 
-            "type": "string",
-            "pop-up window": ""
+            "type": "string"
         },
         "sample_type": {
             "description": "\"HiFi\" (default), \"Iso-Seq\", \"MAS-Seq\", or \"Amplicons\"",
             "column name": "sample type", 
-            "type": "string",
-            "pop-up window": ""
+            "type": "string"
         },
         "sample_name": {
             "description": "The name of the sample",
             "column name": "sample name", 
-            "type": "string",
-            "pop-up window": ""
+            "type": "string"
         },
         "num_shares": {
             "description": "The number of access rules granting access to this movie's path",
@@ -53,6 +47,11 @@
             "column name": "analyses", 
             "type": "integer",
             "pop-up window": "analyses associated with movie movie_id"
+        },
+        "backup_device": {
+            "description": "The name of the backup device, if any, else \"None\"",
+            "column name": "backup device", 
+            "type": "string"
         }
     }
 }

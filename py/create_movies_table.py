@@ -10,15 +10,12 @@ with open(f'json/model/{file_name}.json') as file:
 table_data = []
 for property_name, item in data['properties'].items():
     # extact column name and pop-up window name, if present
-    popup_name = ''
+    popup_name = 'n/a'
     if 'pop-up window' in item.keys():
-        # if no pop-up window, print n/a
-        popup_name = 'n/a'
-        if item['pop-up window'] != '':
-            popup_name = item['pop-up window']
-            # capitalize words that are not property names
-            title_name = [word.title() if word not in data['properties'].keys() else word for word in popup_name.split(' ')]
-            popup_name = ' '.join(title_name)
+        popup_name = item['pop-up window']
+        # capitalize words that are not property names
+        title_name = [word.title() if word not in data['properties'].keys() else word for word in popup_name.split(' ')]
+        popup_name = ' '.join(title_name)
     column_name = ''
     if 'column name' in item.keys():
         column_name = item['column name'].title()
