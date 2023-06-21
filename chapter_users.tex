@@ -1,0 +1,41 @@
+\section{Summary}
+
+The Users table helps website users keep track of customers of the DNASC to 
+facilitate the sharing of data.
+
+\section{Table}
+
+Each row in the users table will have a column for each of the following 
+properties belonging to the user object. Notice that not all user properties 
+are included. Rows of user data should be sorted by date of latest movie. 
+The cells of some columns serve as buttons to open a pop-up window.
+
+\begin{table}[h]
+    %\input{table/analysis_view.tex}
+    \caption{Users table}
+\end{table}
+
+\section{Pop-up windows}
+
+\subsection{Movies shared with \texttt{user\_name}}
+
+Show all movies submitted by \texttt{user\_name}.
+
+\subsection{Movie details}
+
+A small pop-up to view all fields belonging to a movie.
+
+\section{Actions}
+
+\subsection{Create new user}
+
+When this action is initiated, a pop-up opens to collect several user 
+properties from the website user (user\_name, user\_email, globus\_id). 
+The data collected from the user must be validated. 
+
+\subsection{Delete user}
+
+Delete a given user.
+
+\subsection{Edit user}
+
