@@ -74,19 +74,23 @@ movie.
 
 \subsection{Download}
 
-The download action is used to copy a given movie to an endpoint specified by the user. The 
-user must provide the following info to submit a download task:
+The download action is used to copy a given movie to a Globus endpoint specified by the user.
+The user must provide the following info to submit a download task:
 
-\begin{itemize}
+\begin{itemize}\itemsep1pt
     \item Movie
     \item Destination endpoint id
-    \item (optional) destination drive letter
+    \item (optional) destination path
 \end{itemize}
 
-\begin{description}
-    \item[label:] Upon submitting the task, give the task a label which is the total number 
-                  of bytes across all movie files to be transferred.
-\end{description}
+\noindent With this information, the frontend can submit a transfer task to Globus.
+
+\subsection{Create Backup}
+
+\emph{``The cloud is just someone else's computer.'' -Anonymous}
+
+\noindent The create backup action involves most of the same tasks as the download action, 
+but with a few additional tasks.
 
 \subsection{Upload}
 
