@@ -2,10 +2,12 @@
     "properties": {
         "user_name": {
             "description": "String of alphabetic and spaces",
+            "column name": "name",
             "type": "string"
         },
         "latest_movie_date": {
-            "description": "Date of latest movie",
+            "description": "Date of latest movie, or some default string if no movies yet",
+            "column name": "last movie",
             "type": "string",
             "pop-up window": "movie details"
         }, 
@@ -15,19 +17,23 @@
         },
         "num_movies": {
             "description": "Number of movies sequenced for this user all time",
+            "column name": "movies sequenced",
             "type": "integer"
         },
         "num_sharing": {
             "description": "Number of movies currently sharing via Globus",
+            "column name": "movies sharing",
             "type": "integer",
             "pop-up window": "movies shared with user_name"
         },
         "user_email": {
             "description": "Email address of user",
+            "column name": "email",
             "type": "string"
         },
         "globus_id": {
             "description": "Globus ID of user",
+            "column name": "globus ID",
             "type": "string"
         }
     }
