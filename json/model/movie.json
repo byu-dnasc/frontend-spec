@@ -11,6 +11,12 @@
             "type": "string",
             "pop-up window": "movies on run run_id"
         },
+        "dataset_id": {
+            "description": "The ID by which the movie file(s) are known in SMRT Link",
+            "column name": "dataset ID",
+            "type": "integer",
+            "comment": "Users can use this ID to find a movie in SMRT Link to view or delete it"
+        },
         "date_str": {
             "description": "The time at which the movie was created",
             "column name": "date", 
