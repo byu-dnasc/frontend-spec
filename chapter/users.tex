@@ -5,10 +5,42 @@ external DNASC users.
 
 The current website facilitates the provision of services to internal users by
 maintaining user accounts. This feature can be adapted to provide technicians
-with a database of the Globus usernames of DNASC users. This database can be
-used to facilitate the sharing of data with DNASC users.
+with a database of the Globus usernames of DNASC users. This new resource will 
+be used to facilitate the sharing of data with DNASC users.
 
-\subsection{Discussion, future improvement}
+\section{Table}
+
+The current table only needs to be modified to include a ``Globus Id'' field.
+
+\section{Actions}
+
+On the current site, the only way to add a new user is for the user to register
+themselves using their BYU login. This is not a viable option for external users,
+so new actions need to be added to allow technicians to add and edit external users.
+
+\subsection{New External User}
+
+The current page needs to be modified to include a ``New External User'' button to
+prompt a pop-up window to collect the necessary information. This pop-up window
+could be similar to the existing user registration page, but with the following
+changes:
+\begin{itemize}\itemsep1pt
+    \item The ``Net ID'' field should not be collected. The field could be populated 
+    with some default value when displayed (like ``n/a'').
+    \item The field ``Department'' should also not be collected. This field could be
+    populated with some default value when displayed (like ``n/a'').
+    \item The value of the ``Role'' field should be automatically populated with 
+    ``External''.
+\end{itemize}
+
+\subsection{Edit user}
+
+The edit user action is already implemented. However, it is currently only available
+to the user who is to be edited. This action needs to be made available to all 
+technicians and system admins for all external users. Additionally, the edit user
+pop-up should include a new button to allow technicians to delete external users.
+
+\section{Future improvement}
 The current user registration system is integrated with BYU's central 
 authentication system (CAS). This means that external users are currently not 
 able to create accounts. However, this could be a useful feature in the future 
@@ -16,40 +48,4 @@ if it became desirable for external users to create their own account. For now,
 though, it seems that requiring external users to register themselves with the 
 DNASC via the website would too tedious for the mere purpose of collecting their
 globus username.
-
-\section{Table}
-
-Each row in the users table will have a column for each of the following 
-properties belonging to the user object. Notice that not all user properties 
-are included. Rows of user data should be sorted by date of latest movie. 
-The cells of some columns serve as buttons to open a pop-up window.
-
-\begin{table}[h]
-    \input{table/user_table_details.tex}
-    \caption{Users table}
-\end{table}
-
-\section{Pop-up windows}
-
-\subsection{Movies shared with \texttt{user\_name}}
-
-Show all movies submitted by \texttt{user\_name}.
-
-\subsection{Movie details}
-
-A small pop-up to view all fields belonging to a movie.
-
-\section{Actions}
-
-\subsection{Create new user}
-
-When this action is initiated, a pop-up opens to collect several user 
-properties from the website user (user\_name, user\_email, globus\_id). 
-The data collected from the user must be validated. 
-
-\subsection{Delete user}
-
-Delete a given user.
-
-\subsection{Edit user}
 

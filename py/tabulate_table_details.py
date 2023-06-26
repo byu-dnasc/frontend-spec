@@ -1,8 +1,6 @@
 import json
 from tabulate import tabulate
 
-file_name = 'movie'
-
 def tabulate_table_details(file_name):
 
     # Read data from JSON file
@@ -41,7 +39,7 @@ def tabulate_table_details(file_name):
     with open(f'table/{file_name}_table_details.tex', 'w') as file:
         file.write(table_code)
 
-table_names = ['user', 'movie', 'analysis']
+table_names = ['movie', 'analysis']
 
 # generate LaTeX table file for each model
 for name in table_names:
