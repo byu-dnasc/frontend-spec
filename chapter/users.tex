@@ -3,14 +3,27 @@
 The current users page will be adapted to help technicians share data with 
 external DNASC users.
 
-The current website facilitates the provision of services to internal users by
-maintaining user accounts. This feature can be adapted to provide technicians
-with a database of the Globus usernames of DNASC users. This new resource will 
-be used to facilitate the sharing of data with DNASC users.
+The current website facilitates the provision of services to internal DNASC users 
+by maintaining user accounts. This feature can be adapted to provide technicians
+with a database of the Globus usernames of DNASC users. This new resource will be
+drawn upon by logic in the movies page to facilitate the sharing of data with 
+external DNASC users.
+
+\section{Adapting the existing user management system}
+
+In addition to the creation of new actions, the existing code (i.e. the user 
+registration form, database logic) needs to be modified to accommodate a 
+single new field in the user table. The new field will be called ``Globus Id'' and 
+will be used to store the Globus username of the user.
+
+The current user registration form is only accessible to internal DNASC users.
+Because internal DNASC users are entitled to their own account with BYU ORC, it is 
+doubtful that an internal user would want to use Globus to access their DNASC data. 
+Therefore, the ``Globus Id'' field should not be collected by the user registration form.
 
 \section{Table}
 
-The current table only needs to be modified to include a ``Globus Id'' field.
+The current ``Users'' table only needs to be modified to include a ``Globus Id'' column.
 
 \section{Actions}
 
@@ -22,9 +35,12 @@ so new actions need to be added to allow technicians to add and edit external us
 
 The current page needs to be modified to include a ``New External User'' button to
 prompt a pop-up window to collect the necessary information. This pop-up window
-could be similar to the existing user registration page, but with the following
+could be similar to the existing user registration form, but with the following
 changes:
 \begin{itemize}\itemsep1pt
+    \item A new field ``Globus Id'' should be added to the form. \emph{The Globus web app and
+    CLI both have the ability to look up a user's Globus username, but I can't find
+    any such functionality in the REST API docs.}
     \item The ``Net ID'' field should not be collected. The field could be populated 
     with some default value when displayed (like ``n/a'').
     \item The field ``Department'' should also not be collected. This field could be
@@ -44,8 +60,8 @@ pop-up should include a new button to allow technicians to delete external users
 The current user registration system is integrated with BYU's central 
 authentication system (CAS). This means that external users are currently not 
 able to create accounts. However, this could be a useful feature in the future 
-if it became desirable for external users to create their own account. For now, 
-though, it seems that requiring external users to register themselves with the 
-DNASC via the website would too tedious for the mere purpose of collecting their
-globus username.
+if it became desirable for external users to create their own account with the DNASC.
+For now, though, it seems that requiring external users to register themselves with 
+the DNASC via the website would too tedious for the mere purpose of collecting their
+Globus username.
 
