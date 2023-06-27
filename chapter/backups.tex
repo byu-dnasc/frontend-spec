@@ -32,8 +32,8 @@ be displayed:
     \item Backup status
 \end{itemize}
 
-\noindent Included in each row will be a button to initiate the backup process
-for the respective movie.
+\noindent Included in each row will be a button ``Create Backup'' to initiate 
+the backup process for the respective movie.
 
 \section{Actions}
 
@@ -41,28 +41,53 @@ for the respective movie.
 
 The register backup device action is used to register a new backup device.
 
+\subsubsection{Movitation}
 The registration of backup devices simplifies the transfer process in that the 
 backup device object serves as an abstraction of the Globus endpoint and path 
-which is the transfer destination (or source in the seldom case in which data on 
-a backup device needs to be uploaded).
+which are the transfer destination (or, in the seldom case in which data on 
+a backup device needs to be uploaded, the source).
 
-The user must provide the following info to register a backup device:
-\begin{itemize}
-    \item Backup device name
-    \item Backup device endpoint id
+\subsubsection{Implementation}
+Following details must be collected to register a backup device:
+\begin{itemize}\itemsep1pt
+    \item Name
+    \item Globus endpoint id
+    \item Globus endpoint path. \emph{Given the endpoint id, there should be some pre-built logic to send the user to
+the app.globus.org to browse the endpoint and select a path (https://docs.globus.org/modern-research-data-portal/mrdp-description/).}
 \end{itemize}
 
-\noindent \emph{Given the endpoint id, there should be some pre-built logic to send the user to
-the app.globus.org to browse the endpoint (https://docs.globus.org/modern-research-data-portal/mrdp-description/).}
-The path of the device on the endpoint needs to be determined, at which point
-a "cookie" will be created and placed on the backup device. This cookie will
-be used to identify the backup device in the future.
+\noindent 
+Once the path of the device on the endpoint is determined, a ``cookie'' should be 
+created and placed on the backup device via Globus Transfer. This cookie should
+consist of an empty file with a unique name. In the event of a download, this 
+cookie will be used to identify the backup device.
 
-Upon successful registration, the backup device will be added to the list of
-available backup devices. This list will be used to populate a dropdown menu
-in the backup movie pop-up window.
+Upon successful registration, the user-provided name for the backup device and the 
+filename of the cookie should be stored in the database. The device names will be 
+used to populate a dropdown menu in the ``Create Backup'' pop-up window for the
+user to select the backup device to use for the transfer.
 
 Backup device data should be stored in a database on the website backend, not in
 the Globus Search index.
 
-\subsection{Backup Movie}
+\subsection{Create Backup}
+
+The create backup action is used to copy a given movie to a backup device on a Globus
+endpoint. The action is initiated by clicking the ``Create Backup'' button available 
+in each row of the ``Awaiting Backup'' table. The button opens a pop-up window to
+allow the user to select an endpoint and a backup device available on the endpoint 
+to use for the transfer.
+
+\subsubsection{Implementation}
+
+% too detailed. put this paragraph somewhere else
+When the ``Create Backup'' action is initiated, two lists should be created to populate
+the dropdown menus in the pop-up window. The first list should contain all endpoints
+which have been used before. If the user has not used any endpoints before, the list
+should be empty. The second list should contain all backup devices available on the
+selected endpoint. The frontend will use the Globus Transfer API to 
+\href{appendix:identifybackupdevices}{identify all backup devices} available on the 
+user-selected endpoint.
+
+The user can select an endpoint and a backup device from the respective dropdown menus.
+Once this is accomplished, the transfer can be submitted.
