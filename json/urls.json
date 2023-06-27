@@ -14,5 +14,6 @@
     "globusgettaskbyid": "https://docs.globus.org/api/transfer/task/#get_task_by_id",
     "globuscanceltaskbyid": "https://docs.globus.org/api/transfer/task/#cancel_task_by_id",
     "globusgettasklist": "https://docs.globus.org/api/transfer/task/#get_task_list",
-    "globusbrowseendpoint": "https://docs.globus.org/api/helper-pages/browse-endpoint"
+    "globusbrowseendpoint": "https://docs.globus.org/api/helper-pages/browse-endpoint",
+    "globusdirlistingfiltering": "https://docs.globus.org/api/transfer/file_operations/#dir_listing_filtering"
 } 
