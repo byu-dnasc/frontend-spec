@@ -1,0 +1,68 @@
+% Chapter: Backups page
+
+\section{Overview}
+
+\vspace{3mm}
+\emph{``The cloud is just someone else's computer.'' -Anonymous}
+\vspace{3mm}
+
+A new page will be created to facilitate the backing up of sequencing data 
+files generated in the DNASC. These files are initially stored on systems 
+administered by the Office of Research Computing (ORC). An essential task 
+for DNASC technicians is to copy primary data files from ORC storage to local 
+hard drives. Once backed up, the files can be removed from ORC storage to 
+free up space.
+
+\section{Components}
+
+The backups page will consist of a table of movies and a button to open a
+pop-up window to collect information to register a new backup device. 
+
+\subsection{Table: ``Awaiting Backup''}
+
+A table on the backups page will display movies that have not yet been backed
+up, sorted by the date the movie was created. Only the following fields should 
+be displayed:
+
+\begin{itemize}\itemsep1pt
+    \item Movie name
+    \item Movie creation date
+    \item Movie size
+    \item Backup device
+    \item Backup status
+\end{itemize}
+
+\noindent Included in each row will be a button to initiate the backup process
+for the respective movie.
+
+\section{Actions}
+
+\subsection{Register Backup Device}
+
+The register backup device action is used to register a new backup device.
+
+The registration of backup devices simplifies the transfer process in that the 
+backup device object serves as an abstraction of the Globus endpoint and path 
+which is the transfer destination (or source in the seldom case in which data on 
+a backup device needs to be uploaded).
+
+The user must provide the following info to register a backup device:
+\begin{itemize}
+    \item Backup device name
+    \item Backup device endpoint id
+\end{itemize}
+
+\noindent \emph{Given the endpoint id, there should be some pre-built logic to send the user to
+the app.globus.org to browse the endpoint (https://docs.globus.org/modern-research-data-portal/mrdp-description/).}
+The path of the device on the endpoint needs to be determined, at which point
+a "cookie" will be created and placed on the backup device. This cookie will
+be used to identify the backup device in the future.
+
+Upon successful registration, the backup device will be added to the list of
+available backup devices. This list will be used to populate a dropdown menu
+in the backup movie pop-up window.
+
+Backup device data should be stored in a database on the website backend, not in
+the Globus Search index.
+
+\subsection{Backup Movie}
