@@ -19,16 +19,16 @@ toolbar to facilitate these tasks.
 The new page will consist mainly of a table representing sequencing datasets called 
 ``movies''. Each row will contain both data and links to pop-up windows with additional 
 data and actions. 
+
 \subsubsection{Functionality}
 The frontend will allow users to browse, transfer and share data 
 located in a storage system administered by BYU Office of Research Computing (ORC) using
-web APIs provided by Globus, a not-for-profit Platform as a Service (PaaS) provider.
+RESTful web APIs provided by Globus, a not-for-profit Platform as a Service (PaaS) provider.
 
-The many of new features to be added to the DNASC website will draw on the Globus web APIs.
-The Globus web APIs are RESTful APIs which can be used to interact with Globus services.
-The new functionality will draw on two sources for data: the current database running
-on the BYU Life Science IT web server, and a new database or \linkglobusindex{``search index''} 
-hosted by Globus.
+\subsubsection{Databases}
+The new functionality will draw on two sources for data: 
+the current database running on the BYU Life Science IT web server, and a new database 
+or \linkglobusindex{``search index''} hosted by Globus.
 
 \subsubsection{Appearance}
 In general, the new page should be similar in appearance to existing DNASC pages such as 
@@ -40,6 +40,6 @@ should look.
 \section{Document organization and content}
 
 The chapters of this document will describe of the appearance and purpose of each of the
-elements associated with the new web page. Instructions on how to implement the 
+elements associated with the new web page. Instructions for implementing the 
 functionalities required by each element are provided as appendices to this document. 
 Other appendices provide information on Globus APIs and concepts, data models, and more.
