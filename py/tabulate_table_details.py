@@ -9,6 +9,8 @@ def tabulate_table_details(file_name):
 
     table_data = []
     for property_name, item in data['properties'].items():
+        if 'in_table' not in item.keys():
+            continue
         # extact column name and pop-up window name, if present
         popup_name = 'n/a'
         if 'pop-up window' in item.keys():
@@ -16,11 +18,7 @@ def tabulate_table_details(file_name):
             # capitalize words that are not property names
             title_name = [word.title() if word not in data['properties'].keys() else word for word in popup_name.split(' ')]
             popup_name = ' '.join(title_name)
-        column_name = ''
-        if 'column name' in item.keys():
-            column_name = item['column name'].title()
-        else:
-            continue # if column name is not present, it is not meant to be displayed in the table
+        column_name = item['name'].title()
         table_data.append([column_name, property_name, popup_name])
 
     # Generate LaTeX code for the table
@@ -39,7 +37,7 @@ def tabulate_table_details(file_name):
     with open(f'table/{file_name}_table_details.tex', 'w') as file:
         file.write(table_code)
 
-table_names = ['movie', 'analysis']
+table_names = ['movie']
 
 # generate LaTeX table file for each model
 for name in table_names:

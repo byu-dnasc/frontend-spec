@@ -2,62 +2,81 @@
     "properties": {
         "movie_id": { 
             "description": "The movie ID",
-            "column name": "movie ID",
-            "type": "string"
+            "name": "movie",
+            "type": "string",
+            "pop-up window": "movie movie_id details",
+            "in_table": true
         },
         "run_id": {
             "description": "The run ID",
-            "column name": "run ID", 
+            "name": "run", 
             "type": "string",
             "pop-up window": "movies on run run_id"
         },
         "dataset_id": {
             "description": "The ID by which the movie file(s) are known in SMRT Link",
-            "column name": "dataset ID",
+            "name": "dataset ID",
             "type": "integer",
             "comment": "Users can use this ID to find a movie in SMRT Link to view or delete it"
         },
         "date_str": {
             "description": "The time at which the movie was created",
-            "column name": "date", 
-            "type": "string"
+            "name": "date", 
+            "type": "string",
+            "in_table": true
         },
         "user_name": {
             "description": "The name of user who submitted the movie", 
-            "column name": "submitted by", 
-            "type": "string"
+            "name": "submitted by", 
+            "type": "string",
+            "in_table": true
         },
         "instrument_name": {
             "description": "\"Sequel II\" or \"Revio\"",
-            "column name": "instrument", 
+            "name": "instrument", 
             "type": "string"
         },
         "sample_type": {
             "description": "\"HiFi\" (default), \"Iso-Seq\", \"MAS-Seq\", or \"Amplicons\"",
-            "column name": "sample type", 
+            "name": "sample type", 
             "type": "string"
         },
         "sample_name": {
             "description": "The name of the sample",
-            "column name": "sample name", 
-            "type": "string"
+            "name": "sample name", 
+            "type": "string",
+            "in_table": true
         },
         "num_shares": {
             "description": "The number of access rules granting access to this movie's path",
-            "column name": "shares", 
+            "name": "users with access", 
             "type": "integer",
-            "pop-up window": "users with access to movie movie_id"
+            "pop-up window": "sharing of movie movie_id",
+            "in_table": true
         },
         "num_analyses": {
             "description": "The number of analyses associated with this movie",
-            "column name": "analyses", 
+            "name": "analyses", 
             "type": "integer",
             "pop-up window": "analyses associated with movie movie_id"
         },
         "backup_device": {
             "description": "The name of the backup device, if any, else \"None\"",
-            "column name": "backup device", 
+            "name": "backup", 
+            "type": "string",
+            "pop-up window": "Back up movie movie_id",
+            "in_table": true
+        },
+        "backup_date": {
+            "description": "The date on which the movie was backed up, if any, else \"None\"",
+            "name": "backup date", 
             "type": "string"
+        },
+        "online_status": {
+            "description": "Whether or not movie is available in Globus (\"Yes\" or \"No\")",
+            "name": "Online", 
+            "type": "string",
+            "in_table": true
         }
     }
 }

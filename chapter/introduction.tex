@@ -8,27 +8,26 @@ support the operations of the BYU DNA Sequencing Center (DNASC).
 \subsection{DNASC website expansion}
 
 The BYU DNA Sequencing Center provides state-of-the-art DNA sequencing services 
-to internal and external users. An essential task to support the provision of these 
-services is the sharing and backup of files generated in the center. The existing DNASC 
-website \linklsdnasc{lsdnasc.byu.edu} will get a new page to be accessible from the 
-toolbar to facilitate these tasks.
+to internal and external users. Two essential tasks in supporting the provision of these 
+services are the sharing and backing up of files generated in the center. The existing 
+DNASC website \linklsdnasc{lsdnasc.byu.edu} will get a new page to facilitate these tasks.
 
-\subsection{New features}
+\subsubsection{Movies page}
+A new web page will be created containing a table, the rows of which representing sequencing 
+datasets (called ``movies'') and associated data. Selecting an individual movie from the 
+table opens a pop-up window which displays additional movie data, but also includes
+buttons that initiate actions such as sharing or creating a backup for a movie. This page 
+will be accessible from the toolbar on lsdnasc.byu.edu.
 
-\subsubsection{``Movies'' page}
-The new page will consist mainly of a table representing sequencing datasets called 
-``movies''. Each row will contain both data and links to pop-up windows with additional 
-data and actions. 
-
-\subsubsection{Functionality}
-The frontend will allow users to browse, transfer and share data 
-located in a storage system administered by BYU Office of Research Computing (ORC) using
-RESTful web APIs provided by Globus, a not-for-profit Platform as a Service (PaaS) provider.
+\subsubsection{Functionalities}
+The frontend will allow users to browse, transfer and share data located in a storage system 
+administered by BYU Office of Research Computing (ORC) using RESTful web APIs from 
+Globus, a not-for-profit Platform as a Service (PaaS) provider.
 
 \subsubsection{Databases}
-The new functionality will draw on two sources for data: 
-the current database running on the BYU Life Science IT web server, and a new database 
-or \linkglobusindex{``search index''} hosted by Globus.
+The new functionality will draw on two sources for data: the current database running on the 
+BYU Life Science IT web server, and a new database or \linkglobusindex{``search index''} 
+hosted by Globus.
 
 \subsubsection{Appearance}
 In general, the new page should be similar in appearance to existing DNASC pages such as 
