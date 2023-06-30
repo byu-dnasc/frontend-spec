@@ -2,7 +2,7 @@
     "properties": {
         "movie_id": { 
             "description": "The movie ID",
-            "name": "movie",
+            "name": "id",
             "type": "string",
             "pop-up window": "movie movie_id details",
             "in_table": true
@@ -10,18 +10,18 @@
         "run_id": {
             "description": "The run ID",
             "name": "run", 
-            "type": "string",
-            "pop-up window": "movies on run run_id"
+            "type": "string"
         },
         "dataset_id": {
             "description": "The ID by which the movie file(s) are known in SMRT Link",
             "name": "dataset ID",
             "type": "integer",
-            "comment": "Users can use this ID to find a movie in SMRT Link to view or delete it"
+            "comment": "Users can use this ID to find a movie in SMRT Link to view or delete it",
+            "valid_offline": false
         },
-        "date_str": {
-            "description": "The time at which the movie was created",
-            "name": "date", 
+        "date_run": {
+            "description": "The start time of the run which included this movie",
+            "name": "run date", 
             "type": "string",
             "in_table": true
         },
@@ -52,13 +52,15 @@
             "name": "users with access", 
             "type": "integer",
             "pop-up window": "sharing of movie movie_id",
-            "in_table": true
+            "in_table": true,
+            "valid_offline": false
         },
         "num_analyses": {
             "description": "The number of analyses associated with this movie",
             "name": "analyses", 
             "type": "integer",
-            "pop-up window": "analyses associated with movie movie_id"
+            "pop-up window": "analyses associated with movie movie_id",
+            "valid_offline": false
         },
         "backup_device": {
             "description": "The name of the backup device, if any, else \"None\"",
@@ -72,7 +74,7 @@
             "name": "backup date", 
             "type": "string"
         },
-        "online_status": {
+        "is_online": {
             "description": "Whether or not movie is available in Globus (\"Yes\" or \"No\")",
             "name": "Online", 
             "type": "string",

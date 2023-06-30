@@ -1,12 +1,13 @@
-\begin{tabularx}{\textwidth}{l|l|X}
+\begin{tabularx}{\textwidth}{X|l|X|l}
 \toprule
- Column Name       & Property Name   & Pop-up Window             \\
+ Column Name       & Property Name   & Pop-up Window             & Valid Offline   \\
 \midrule
- Movie             & \texttt{movie\_id}        & Movie \texttt{movie\_id} Details    \\
- Date              & \texttt{date\_str}        & n/a                       \\
- Submitted By      & \texttt{user\_name}       & n/a                       \\
- Sample Name       & \texttt{sample\_name}     & n/a                       \\
- Users With Access & \texttt{num\_shares}      & Sharing Of Movie \texttt{movie\_id} \\
- Backup            & \texttt{backup\_device}   & Back Up Movie \texttt{movie\_id}    \\
+ Id                & \texttt{movie\_id}        & Movie \texttt{movie\_id} Details    & True            \\
+ Run Date          & \texttt{date\_run}        & n/a                       & True            \\
+ Submitted By      & \texttt{user\_name}       & n/a                       & True            \\
+ Sample Name       & \texttt{sample\_name}     & n/a                       & True            \\
+ Users With Access & \texttt{num\_shares}      & Sharing Of Movie \texttt{movie\_id} & False           \\
+ Backup            & \texttt{backup\_device}   & Back Up Movie \texttt{movie\_id}    & True            \\
+ Online            & \texttt{is\_online}       & n/a                       & True            \\
 \bottomrule
 \end{tabularx}

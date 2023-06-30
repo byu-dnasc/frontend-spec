@@ -3,88 +3,48 @@
 \section{Overview}
 
 This chapter will describe the basic design of the Movies page, including the table and
-table filters. Table rows represent movies and contain links to actions. The actions 
+table filters. Table rows represent movies and contain links to pop-up windows. The pop-ups 
 mentioned in this chapter will be described in more detail in subsequent chapters.
 
 \section{Movies Table}
-Each row in the movie table will have a column for each of the following attributes
-belonging to the movie object. Rows of movie data should be sorted by date. The 
-cells of some columns serve as buttons to open pop-up windows.
+The movie table will have a column for each of the following attributes of the movie object. 
+Rows of movie data should be sorted by date. The cells of some columns serve as buttons to 
+open pop-up windows.
 
 \begin{table}[h]
     \input{table/movie_table_details.tex}
     \caption{Movies table}
 \end{table}
 
-\section{Pop-up windows}
+\subsection{Pop-up Availability}
 
-\subsection{Movies on run run\_id}
-List of movies that ran on run \texttt{run\_id}. Rows should be the same as in the main 
-Movies table. This functionality could also be implemented by a filter being applied 
-to the main Movies table.
+It is only possible to share or back up a movie if the movie is available in the DNASC Globus
+collection. Therefore, if the movie is not available, the share and backup buttons should be
+unavailable. Such movies have the value of \texttt{is\_online} set to ``False''.
 
-\subsection{Sharing of movie movie\_id}
-List of users who have been granted access to this movie. Rows should contain the 
-same fields as those in the main Users table. First, get an 
-\hyperref[section:updatingcollectionaccessrules]{up-to-date list of access rules} 
-to determine which users have access to this movie. Then, use this information 
-to filter out the appropriate \texttt{user} records.
+\subsection{Field applicability}
 
-\subsection{View movie directory}
+Some fields are not applicable to movies which are no longer online (i.e. not available in the
+DNASC Globus collection). For movies where this is the case, these fields should have a value
+of ``n/a''.
 
-Provide a link to open the Globus web app. See \linkglobusbrowseendpoint{link}.
+\section{Table Filters}
 
-\subsection{Analyses associated with movie movie\_id}
+The movies table should have filters to assist in browsing the data, however, more importantly,
+the following filters should be implemented to assist with the essential DNASC tasks of sharing
+and backing up movie files. These filters could be implemented as a checkbox that toggles the filter 
+on and off.
 
-A pop-up window displaying a table of all analyses associated with the movie. An analysis 
-is a dataset derived from primary movie data.
+\subsection{Awaiting Backup}
 
-\begin{table}[h]
-    \input{table/analysis_table_details.tex}
-    \caption{Analysis Pop-up View}
-\end{table}
+A filter should be provided to show only movies that have not been backed up to a backup device.
+Such movies are identifiable by the fact that the value of \texttt{backup\_device} is ``None''. 
 
-\section{Actions}
+\subsection{Awaiting Sharing}
 
-Each of these actions is initiated with respect to a user-specified movie. I am open for 
-suggestions on exactly how to present these actions to the user. One thing to consider is 
-that a given action is only applicable given the right conditions.
-
-\begin{table}[h]
-    \input{table/movie_action_availabilities.tex}
-    \caption{Movie action availability}
-\end{table}
-
-\subsection{Share}
-
-The share action is used to grant a given DNASC customer access to a movie. To accomplish 
-this, post an access rule object to \texttt{/endpoint/endpoint\_xid/access}. The access rule 
-needs to include the following:
-
-\begin{itemize}
-    \item \texttt{user.globus\_id}
-    \item \texttt{movie.sample\_name}
-\end{itemize}
-
-This rule will grant the user access to the primary movie data. From there, the backend will 
-create additional access rules so that the user can access any analyses associated with the 
-movie.
-
-\emph{Will the user receive an automated message from Globus?}
-
-\subsection{Download}
-
-The download action is used to copy a given movie to a Globus endpoint specified by the user.
-The user must provide the following info to submit a download task:
-
-\begin{itemize}\itemsep1pt
-    \item Movie
-    \item Destination endpoint id
-    \item (optional) destination path
-\end{itemize}
-
-\noindent With this information, the frontend can submit a transfer task to Globus.
-
-\subsection{Upload}
-
-\subsection{Unshare}
+A filter should be provided to show only movies to which no DNASC user has access. Such movies 
+fulfill two conditions:
+\begin{enumerate}\itemsep1pt
+    \item The user designated by \texttt{user\_name} is not internal (i.e. no netid), and:
+    \item There is no access rule associated with the movie in question
+\end{enumerate}

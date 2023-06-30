@@ -1,0 +1,35 @@
+% chapter: sharing
+
+\section{Overview}
+
+This chapter will describe the contents and functions of the Sharing pop-up window. This 
+pop-up window allows technicians to share a movie with a DNASC customer. The user is presented
+with the list of users who have access to the movie, and is given the option to share the movie
+with a new user. This pop-up window should be opened by clicking a cell in the 
+``Users With Access'' column in the Movies table.
+
+\section{Listing: Users With Access}
+
+A listing of DNASC users who have access to the movie should be displayed. The listing should
+also allow the user to select a DNASC user with whom the movie has been shared to revoke access.
+The listing should contain the following fields:
+
+\begin{itemize}\itemsep1pt
+    \item The name of the user
+    \item The user's Globus ID
+    \item The date the user was granted access
+    \item A button to revoke access (optional depending on implementation)
+\end{itemize}
+
+\subsection{Implementation}
+
+First, get an \hyperref[section:updatingcollectionaccessrules]{up-to-date list of access rules} 
+to determine which users have access to this movie. Then, use this information to filter out the 
+appropriate \texttt{user} records.
+
+\section{Action: Share Movie}
+
+The purpose of the share action is to grant a DNASC customer access to the given movie.
+Link to logic for \hyperref[appendix:grantingaccess]{granting access}.
+
+
