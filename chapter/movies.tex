@@ -2,14 +2,14 @@
 
 \section{Overview}
 
-This chapter will describe the basic design of the Movies page, including the table and
+This chapter will describe the ``Movies'' page, including the table and
 table filters. Table rows represent movies and contain links to pop-up windows. The pop-ups 
 mentioned in this chapter will be described in more detail in subsequent chapters.
 
 \section{Movies Table}
-The movie table will have a column for each of the following attributes of the movie object. 
-Rows of movie data should be sorted by date. The cells of some columns serve as buttons to 
-open pop-up windows.
+The movie table will have a column for each of the following properties belonging to the movie 
+object. Rows of movie data should be sorted by run date. The cells of some columns serve as 
+buttons to open pop-up windows.
 
 \begin{table}[h]
     \input{table/movie_table_details.tex}
@@ -30,10 +30,10 @@ of ``n/a''.
 
 \section{Table Filters}
 
-The movies table should have filters to assist in browsing the data, however, more importantly,
-the following filters should be implemented to assist with the essential DNASC tasks of sharing
-and backing up movie files. These filters could be implemented as a checkbox that toggles the filter 
-on and off.
+In addition to the generic filtering and search functionality provided with other tables on the
+current DNASC webpages, the following filters should be implemented to assist with the essential 
+DNASC tasks of sharing and backing up movie files. These filters are either engaged or not, and 
+therefore could be implemented as a checkbox or switch that toggles the filter on and off.
 
 \subsection{Awaiting Backup}
 
