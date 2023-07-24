@@ -1,4 +1,4 @@
-% Chapter: Backups page
+%  Chapter: Backups page
 
 \section{Overview}
 
@@ -6,69 +6,72 @@
 \emph{``The cloud is just someone else's computer.'' -Anonymous}
 \vspace{3mm}
 
-A new page will be created to facilitate the backing up of sequencing data 
-files generated in the DNASC. These files are initially stored on systems 
-administered by the Office of Research Computing (ORC). An essential task 
-for DNASC technicians is to copy primary data files from ORC storage to local 
-hard drives. Once backed up, the files can be removed from ORC storage to 
-free up space.
+\noindent This chapter will describe the contents of the backup pop-up window.
+This pop-up will facilitate the backing up of sequencing data files generated 
+in the DNASC. It is opened by clicking the cell in the ``Backup'' column of the 
+Movies table for a given movie. The pop-up window should allow the user initiate 
+the copying of the primary files associated with the given movie to a backup device 
+selected by the user. The pop-up window should also allow the user to register a new 
+backup device.
 
-\section{Components}
+\subsection{Backup workflow}
+Movie files are initially stored on systems administered by the BYU Office of 
+Research Computing (ORC). An essential task for DNASC technicians is to copy primary 
+movie files from ORC storage to local hard drives. Once backed up, the files can be 
+removed from ORC storage to free up space.
 
-The backups page will consist of a table of movies and a button to open a
-pop-up window to collect information to register a new backup device. 
+\section{Contents}
 
-\subsection{Table: ``Awaiting Backup''}
+The contents of the backups pop-up window can be partitioned into three subsections: 
+``Movie Details'', ``Backup Details'', and ``Create Backup''. The pop-up window should 
+display all three subsections in a single listing in the order listed above, including 
+the subsection name (formatted as a title) and contents. The contents of each subsection 
+are described below. Note that this configuration allows for the case where, if some 
+reason a backup has been lost, the option to create a new backup is still available.
 
-A table on the backups page will display movies that have not yet been backed
-up, sorted by the date the movie was created. Only the following fields should 
-be displayed:
+\subsubsection{Movie Details}
 
+The movie details subsection consists of the following items:
 \begin{itemize}\itemsep1pt
-    \item Movie name
-    \item Movie creation date
-    \item Movie size
-    \item Backup device
-    \item Backup status
+  \item Movie id
+  \item Sample name
+  \item File size
 \end{itemize}
 
-\noindent Included in each row will be a button ``Create Backup'' to initiate 
-the backup process for the respective movie.
+\subsubsection{Backup Details}
+
+The contents of the backup details subsection should should vary depending on 
+whether or not the movie has been backed up before. If the movie has not been 
+backed up before, the backup details subsection should consist of the following
+string: 
+
+\vspace{3mm}
+``No backups have been created for this movie.''
+\vspace{3mm}
+
+\noindent If the movie has been backed up before, the Backup Details subsection
+should consist of the following name-value pairs:
+
+\begin{itemize}\itemsep1pt
+  \item ``Backup Device'' and the value of movie property \texttt{backup\_device}
+  \item ``Backup Date'' and the value of movie property \texttt{backup\_date}
+\end{itemize}
+
+\subsubsection{Create Backup}
+
+The create backup subsection allows the user to initiate the backup process for
+the given movie. The subsection should consist of the following items:
+
+\begin{itemize}\itemsep1pt
+  \item A selection menu of registered backup devices
+  \item A button ``Initiate Transfer''
+  \item A button ``Register Backup Device''
+\end{itemize}
+
+\noindent The register backup device button should open the register backup device
+pop-up window described in chapter \ref{chapter:registerbackupdevice}.
 
 \section{Actions}
-
-\subsection{Register Backup Device}
-
-The register backup device action is used to register a new backup device.
-
-\subsubsection{Movitation}
-The registration of backup devices simplifies the transfer process in that the 
-backup device object serves as an abstraction of the Globus endpoint and path 
-which are the transfer destination (or, in the seldom case in which data on 
-a backup device needs to be uploaded, the source).
-
-\subsubsection{Implementation}
-Following details must be collected to register a backup device:
-\begin{itemize}\itemsep1pt
-    \item Name
-    \item Globus endpoint id
-    \item Globus endpoint path. \emph{Given the endpoint id, there should be some pre-built logic to send the user to
-the app.globus.org to browse the endpoint and select a path (https://docs.globus.org/modern-research-data-portal/mrdp-description/).}
-\end{itemize}
-
-\noindent 
-Once the path of the device on the endpoint is determined, a ``cookie'' should be 
-created and placed on the backup device via Globus Transfer. This cookie should
-consist of an empty file with a unique name. In the event of a download, this 
-cookie will be used to identify the backup device.
-
-Upon successful registration, the user-provided name for the backup device and the 
-filename of the cookie should be stored in the database. The device names will be 
-used to populate a dropdown menu in the ``Create Backup'' pop-up window for the
-user to select the backup device to use for the transfer.
-
-Backup device data should be stored in a database on the website backend, not in
-the Globus Search index.
 
 \subsection{Create Backup}
 
