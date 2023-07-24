@@ -1,0 +1,49 @@
+% Chapter: Register Backup Device Pop-up
+
+\section{Overview}
+
+This chapter will describe the contents of the register backup device pop-up 
+window. This pop-up will facilitate the registration of a new backup device
+for use in the DNASC. It is opened by clicking the ``Register Backup Device''
+button in the ``Create Backup'' subsection of the backups pop-up window.
+Once registered, the backup device will be available to be selected by the
+user as the destination for a backup transfer.
+
+\subsection{Movitation}
+The registration of backup devices simplifies the transfer process in that the 
+backup device object serves as an abstraction of the Globus endpoint and path 
+which are the transfer destination (or, in the seldom case in which data on 
+a backup device needs to be uploaded, the source).
+
+\section{Contents}
+
+The register backup device pop-up window is used to collect information from
+the user to identify, validate and register a backup device. The following details 
+must be obtained to register a backup device:
+\begin{itemize}\itemsep1pt
+    \item Name
+    \item Globus endpoint id
+    \item Globus endpoint path. \emph{Given the endpoint id, there should be some pre-built logic to send the user to
+app.globus.org to browse the endpoint and select a path (https://docs.globus.org/modern-research-data-portal/mrdp-description/).}
+\end{itemize}
+
+\subsubsection{Step 1: identify backup device}
+
+The first step in registering a backup device is to identify the device. This is 
+done by
+
+\section{Implementation}
+
+\noindent Once the path of the device on the endpoint is determined, a ``cookie'' 
+should be created and placed on the backup device via Globus Transfer. This cookie 
+should consist of an empty file with a unique name. In the event of a download, this 
+cookie will be used to identify the backup device.
+
+Upon successful registration, the user-provided name for the backup device and the 
+filename of the cookie should be stored in the database. The device names will be 
+used to populate a dropdown menu in the ``Create Backup'' pop-up window for the
+user to select the backup device to use for the transfer.
+
+Backup device data should be stored in a database on the website backend, not in
+the Globus Search index.
+
