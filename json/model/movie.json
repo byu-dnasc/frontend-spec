@@ -70,7 +70,7 @@
             "in_table": true
         },
         "backup_date": {
-            "description": "The date on which the movie was backed up, if any, else \"None\"",
+            "description": "The date on which the movie was backed up, if any, else \"n/a\"",
             "name": "backup date", 
             "type": "string"
         },
