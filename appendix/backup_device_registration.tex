@@ -1,0 +1,22 @@
+% Appendix: Backup Device Registration
+
+There is a dedicated pop-up window for registering backup devices. It functions
+to collection information from the user about a storage device and its location,
+validate the information, place a ``cookie'' on the backup device to identify it 
+for future transfers, and add a record of the device to the database.
+
+\subsubsection{Step 1: identify backup device}
+
+Once the path of the device on the endpoint is determined, a ``cookie'' 
+should be created and placed on the backup device via Globus Transfer. This cookie 
+should consist of an empty file with a unique name. In the event of a download, this 
+cookie will be used to identify the backup device.
+
+Upon successful registration, the user-provided name for the backup device and the 
+filename of the cookie should be stored in the database. The device names will be 
+used to populate a dropdown menu in the ``Create Backup'' pop-up window for the
+user to select the backup device to use for the transfer.
+
+Backup device data should be stored in a database on the website backend, not in
+the Globus Search index.
+
