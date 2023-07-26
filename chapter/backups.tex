@@ -29,7 +29,7 @@ the subsection name (formatted as a title) and contents. The contents of each su
 are described below. Note that this configuration allows for the case where, if some 
 reason a backup has been lost, the option to create a new backup is still available.
 
-\subsubsection{Movie Details}
+\subsection{Movie Details}
 
 The movie details subsection consists of the following items:
 \begin{itemize}\itemsep1pt
@@ -38,7 +38,7 @@ The movie details subsection consists of the following items:
   \item File size
 \end{itemize}
 
-\subsubsection{Backup Details}
+\subsection{Backup Details}
 
 The contents of the backup details subsection should should vary depending on 
 whether or not the movie has been backed up before. If the movie has not been 
@@ -57,19 +57,40 @@ should consist of the following name-value pairs:
   \item ``Backup Date'' and the value of movie property \texttt{backup\_date}
 \end{itemize}
 
-\subsubsection{Create Backup}
+\subsection{Create Backup}
 
 The create backup subsection allows the user to initiate the backup process for
 the given movie. The subsection should consist of the following items:
 
 \begin{itemize}\itemsep1pt
-  \item A selection menu of registered backup devices
-  \item A button ``Initiate Transfer''
-  \item A button ``Register Backup Device''
+  \item A selection menu of registered GCP endpoints, labeled ``Endpoint''
+  \item A selection menu of backup devices available on the selected endpoint, labeled
+  ``Backup Device''
+  \item A button labeled ``Initiate Transfer''
+  \item A button labeled ``Register Backup Device''
 \end{itemize}
 
-\noindent The register backup device button should open the register backup device
-pop-up window described in chapter \ref{chapter:registerbackupdevice}.
+\subsubsection{Element availability} 
+
+Due to dependencies between the elements in the create backup subsection, some elements
+should (or can) not be made available until certain conditions are met. All elements 
+should be visible at all times, but some elements should be disabled initially. The 
+conditions under which an element should be enabled are as follows:
+
+\begin{itemize}\itemsep1pt
+  \item The ``Endpoint'' selection menu is enabled at all times
+  % PICK UP HERE
+  \item A selection menu of backup devices available on the selected endpoint, labeled
+  ``Backup Device''
+  \item A button labeled ``Initiate Transfer''
+  \item A button labeled ``Register Backup Device''
+\end{itemize}
+
+
+The initiate transfer button should not be enabled until a backup device 
+has been selected from the dropdown menu. The register backup device button should 
+open the register backup device pop-up window described in chapter 
+\ref{chapter:registerbackupdevice}.
 
 \section{Actions}
 
