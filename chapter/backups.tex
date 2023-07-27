@@ -59,59 +59,34 @@ should consist of the following name-value pairs:
 
 \subsection{Create Backup}
 
-The create backup subsection allows the user to initiate the backup process for
-the given movie. The subsection should consist of the following items:
+The create backup subsection allows the user to create a backup by setting up the
+copying of the given movie to a given backup device. The subsection should consist 
+of the following items:
 
 \begin{itemize}\itemsep1pt
-  \item A selection menu of registered GCP endpoints, labeled ``Endpoint''
-  \item A selection menu of backup devices available on the selected endpoint, labeled
-  ``Backup Device''
-  \item A button labeled ``Initiate Transfer''
-  \item A button labeled ``Register Backup Device''
+  \item A dropdown selection menu of registered GCP endpoints, labeled ``Endpoint''
+  \item A dropdown selection menu of backup devices available on the selected 
+  endpoint, labeled ``Backup Device''
+  \item A button labeled ``Initiate Transfer'' (see appendix 
+  \ref{appendix:createbackup})
+  \item A button labeled ``Register Backup Device'' (see chapter 
+  \ref{chapter:registerbackupdevice})
 \end{itemize}
 
-\subsubsection{Element availability} 
+\subsubsection{Element availability}
 
 Due to dependencies between the elements in the create backup subsection, some elements
-should (or can) not be made available until certain conditions are met. All elements 
+should not (or can not) be made available until certain conditions are met. All elements 
 should be visible at all times, but some elements should be disabled initially. The 
-conditions under which an element should be enabled are as follows:
+conditions under which each respective element should be enabled are as follows:
 
 \begin{itemize}\itemsep1pt
-  \item The ``Endpoint'' selection menu is enabled at all times
-  % PICK UP HERE
-  \item A selection menu of backup devices available on the selected endpoint, labeled
-  ``Backup Device''
-  \item A button labeled ``Initiate Transfer''
-  \item A button labeled ``Register Backup Device''
+  \item The endpoint selection menu is enabled at all times
+  \item The backup device selection menu is available only when an endpoint has been
+  selected
+  \item The initiate transfer button is available only when a backup device has been
+  selected
+  \item The register backup device button is available at all times 
 \end{itemize}
 
 
-The initiate transfer button should not be enabled until a backup device 
-has been selected from the dropdown menu. The register backup device button should 
-open the register backup device pop-up window described in chapter 
-\ref{chapter:registerbackupdevice}.
-
-\section{Actions}
-
-\subsection{Create Backup}
-
-The create backup action is used to copy a given movie to a backup device on a Globus
-endpoint. The action is initiated by clicking the ``Create Backup'' button available 
-in each row of the ``Awaiting Backup'' table. The button opens a pop-up window to
-allow the user to select an endpoint and a backup device available on the endpoint 
-to use for the transfer.
-
-\subsubsection{Implementation}
-
-% too detailed. put this paragraph somewhere else
-When the ``Create Backup'' action is initiated, two lists should be created to populate
-the dropdown menus in the pop-up window. The first list should contain all endpoints
-which have been used before. If the user has not used any endpoints before, the list
-should be empty. The second list should contain all backup devices available on the
-selected endpoint. The frontend will use the Globus Transfer API to 
-\href{appendix:identifybackupdevices}{identify all backup devices} available on the 
-user-selected endpoint.
-
-The user can select an endpoint and a backup device from the respective dropdown menus.
-Once this is accomplished, the transfer can be submitted.
