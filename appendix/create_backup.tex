@@ -1,0 +1,20 @@
+% appendix: How to create a backup
+
+The create backup action is used to copy a given movie to a backup device on a Globus
+endpoint. The action is initiated by clicking the ``Create Backup'' button available
+in the backups pop-up window where the user selects an endpoint and backup device
+upon which to create a backup.
+
+When the ``Create Backup'' action is initiated, two lists should be created to populate
+the dropdown menus in the pop-up window. The first list should contain all endpoints
+which have been used before. If the user has not used any endpoints before, the list
+should be empty. The second list should contain all backup devices available on the
+selected endpoint. The frontend will use the Globus Transfer API to 
+\href{appendix:identifybackupdevices}{identify all backup devices} available on the 
+user-selected endpoint.
+
+\begin{description}
+    \item[label:] Upon submitting the task, give the task a label which is the total number 
+                  of bytes across all movie files to be transferred.
+\end{description}
+
