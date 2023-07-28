@@ -1,46 +1,63 @@
-% Chapter: Movies page
+% chapter: Movies page
 
 \section{Overview}
 
-This chapter will describe the ``Movies'' page, including the table and
-table filters. Table rows represent movies and contain links to pop-up windows. The pop-ups 
-mentioned in this chapter will be described in more detail in subsequent chapters.
+This chapter will describe the movies page, a new page which will be added to the internal 
+DNASC website. The movies page will allow users to browse information about sequencing datasets 
+(called ``movies'') presented as rows in a table. In addition to displaying data, some of the 
+cells in these rows will serve as buttons to open pop-up windows. Each pop-up will present 
+the user with opportunities to browse more information and/or perform an action on the 
+individual movie it concerns. The pop-up windows mentioned in this chapter will be described 
+in more detail in subsequent chapters. 
 
-\section{Movies Table}
-The movie table will have a column for each of the following properties belonging to the movie 
-object. Rows of movie data should be sorted by run date. The cells of some columns serve as 
-buttons to open pop-up windows.
+\subsubsection{Movies page accessibility}
+
+The movies page will be accessible from the toolbar of lsdnasc.byu.edu.
+
+\section{Contents}
+
+The movies page should contain a table and table filters (i.e. switches to toggle special 
+filters described in this chapter).
+
+\subsection{Movies Table}
+
+The movies table should have a column for each of the properties shown in figure 
+\ref{figure:moviestable}. These properties belong to the movie object (see appendix 
+\ref{appendix:models} for details on the movie object and others). Figure 
+\ref{figure:moviestable} also indicates which columns serve as buttons to open pop-up 
+windows. Rows of movie data should be sorted by run date.
 
 \begin{table}[h]
     \input{table/movie_table_details.tex}
     \caption{Movies table}
+    \label{figure:moviestable}
 \end{table}
 
-\subsection{Pop-up Availability}
+\subsubsection{Pop-up availability}
 
 It is only possible to share or back up a movie if the movie is available in the DNASC Globus
 collection. Therefore, if the movie is not available, the share and backup buttons should be
 unavailable. Such movies have the value of \texttt{is\_online} set to ``False''.
 
-\subsection{Field applicability}
+\subsubsection{Field applicability}
 
 Some fields are not applicable to movies which are no longer online (i.e. not available in the
 DNASC Globus collection). For movies where this is the case, these fields should have a value
 of ``n/a''.
 
-\section{Table Filters}
+\subsection{Table Filters}
 
 In addition to the generic filtering and search functionality provided with other tables on the
 current DNASC webpages, the following filters should be implemented to assist with the essential 
 DNASC tasks of sharing and backing up movie files. These filters are either engaged or not, and 
 therefore could be implemented as a checkbox or switch that toggles the filter on and off.
 
-\subsection{Awaiting Backup}
+\subsubsection{Awaiting Backup}
 
-A filter should be provided to show only movies that have not been backed up to a backup device.
+A filter should be provided to show only movies that have not been backed up.
 Such movies are identifiable by the fact that the value of \texttt{backup\_device} is ``None''. 
 
-\subsection{Awaiting Sharing}
+\subsubsection{Awaiting Sharing}
 
 A filter should be provided to show only movies to which no DNASC user has access. Such movies 
 fulfill two conditions:

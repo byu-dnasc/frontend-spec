@@ -7,27 +7,26 @@ support the operations of the BYU DNA Sequencing Center (DNASC).
 
 \subsection{DNASC website expansion}
 
-The BYU DNA Sequencing Center provides state-of-the-art DNA sequencing services 
-to internal and external users. Two essential tasks in supporting the provision of these 
-services are the sharing and backing up of files generated in the center. The existing 
-DNASC website \linklsdnasc{lsdnasc.byu.edu} will get a new page to facilitate these tasks.
-
-\subsubsection{Movies page}
-A new web page will be created containing a table, the rows of which representing sequencing 
-datasets (called ``movies'') and associated data. Selecting an individual movie from the 
-table opens a pop-up window which displays additional movie data, as well as buttons that 
-initiate actions such as sharing or creating a backup for a movie. This page will be 
-accessible from the toolbar on lsdnasc.byu.edu.
+The BYU DNA Sequencing Center provides custom DNA sequencing services to internal and 
+external users. Two essential tasks in supporting the provision of these services are 
+the sharing and backing up of files generated in the center. The existing internal DNASC 
+website \linklsdnasc{lsdnasc.byu.edu} will get a new page to facilitate these tasks.
 
 \subsubsection{Functionalities}
-The frontend will allow users to browse, transfer and share data located in a storage system 
-administered by BYU Office of Research Computing (ORC) using RESTful web APIs from 
-Globus, a not-for-profit Platform as a Service (PaaS) provider.
 
-\subsubsection{Databases}
-The new functionality will draw on two sources for data: the current database running on the 
-BYU Life Science IT web server, and a new database or \linkglobusindex{``search index''} 
-hosted by Globus.
+The new webpage will allow users to browse, share and create backups for files located in a 
+storage system administered by BYU Office of Research Computing (ORC) using RESTful web 
+APIs from Globus, a not-for-profit Platform as a Service (PaaS) provider.
+
+\subsubsection{Architecture}
+
+The new frontend functionalities will interact with these resources:
+\begin{itemize}
+    \item The DNASC database, the database used by the current DNASC website.
+    \item A Globus \linkglobusindex{search index}, a database hosted by Globus and populated 
+    by the frontend and backend components of the new application.
+    \item Other Globus services accessible by the Globus Search and Globus Transfer APIs.
+\end{itemize}
 
 \subsubsection{Appearance}
 In general, the new page should be similar in appearance to existing DNASC pages such as 
@@ -37,5 +36,30 @@ the ``Plate History'' page. This includes functions such as table filters and a 
 
 The chapters of this document will describe of the appearance and purpose of each of the
 elements associated with the new web page. Instructions for implementing the 
-functionalities required by each element are provided as appendices to this document. 
-Other appendices provide information on Globus APIs and concepts, data models, and more.
+functionalities required by each element are provided as appendices to this document. Links
+are provided within chapters to appendices which are partilcularly relevant to the element 
+being described.
+
+\section{Data models}
+
+A number of data models have been defined to facilitate the implementation of the new
+functionality. These models are represented by JSON files and discussed in appendix 
+\ref{appendix:models}. Each JSON file consists of a set of properties, each of which 
+having a set of key value pairs which describe the property.
+
+\begin{verbatim}
+    
+{ 
+    "properties": {
+        "movie_id": { 
+            "description": "The movie ID",
+            "name": "id",
+            "type": "string",
+            "pop-up window": "movie movie_id details",
+            "in_table": true
+        },
+        (...)
+    }
+}
+
+\end{verbatim}
