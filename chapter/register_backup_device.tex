@@ -15,15 +15,47 @@ backup device object serves as an abstraction of the Globus endpoint and path
 which are the transfer destination (or, in the seldom case in which data on 
 a backup device needs to be uploaded, the source).
 
-\section{Contents}
+\section{Register backup device form}
 
-The register backup device pop-up window is used to collect information from
-the user to identify, validate and register a backup device. The following details 
-must be obtained to register a backup device:
+The register backup device pop-up window consists of an interactive form with
+which the user can select, search and input information about a new backup 
+device. The form should contain three sections, each dedicated to collecting 
+one of the following three pieces of information needed to identify and register 
+a backup device.
+
 \begin{itemize}\itemsep1pt
-    \item Name (arbitrary string provided by user)
-    \item Globus endpoint id
-    \item Globus endpoint path. \emph{Given the endpoint id, there should be some pre-built logic to send the user to
-app.globus.org to browse the endpoint and select a path (https://docs.globus.org/modern-research-data-portal/mrdp-description/).}
+    \item Globus Collection
+    \item Path on the Globus Collection. \emph{Given the endpoint id, there should be some 
+    pre-built logic to send the user to app.globus.org to browse the endpoint and 
+    select a path 
+    (https://docs.globus.org/modern-research-data-portal/mrdp-description/).}
+    \item Backup device name (arbitrary string provided by user)
 \end{itemize}
 
+\subsection{Registration Process}
+
+\subsubsection{Step 1: Endpoint selection}
+
+First, a Globus endpoint must be identified. The user should be given the option
+to either select a favorite endpoint or search for an endpoint. If the user
+selects a favorite endpoint, the endpoint id will be displayed in a text box
+and the path selection step will be enabled. If the desired endpoint is not
+listed as a favorite, the user can search for the endpoint.
+The user should be prompted to provide
+a string for querying the Globus endpoint search API. The names of the resulting 
+list of endpoints will be displayed in a dropdown listing. The user will select
+the desired endpoint from this list. At this stage, the user should be given the
+opportunity to save this endpoint as a favorite for future use.
+
+\subsubsection{Step 2: Path selection}
+
+Once an endpoint has been selected, the user will be prompted to select a path
+on the endpoint. The user will be redirected to app.globus.org to browse the
+endpoint and select a path. Once a path has been selected, the user will be
+redirected back to the DNASC. The path will be displayed in a text box.
+
+\subsubsection{Step 3: Name collection}
+
+Finally, the user will be prompted to provide a name for the backup device. 
+As long as the name is unique, the backup device will be registered.
+This device will be used to identify the backup device in the backups pop-up window.
