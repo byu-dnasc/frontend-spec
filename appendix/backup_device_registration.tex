@@ -1,5 +1,21 @@
 % Appendix: Backup Device Registration
 
+\section{Backup Device Registration}
+
+The register backup device pop-up window contains multiple dynamic elements.
+
+\subsection{Globus collection search}
+
+A search box is provided for the user to search for Globus collections. The search
+results are displayed in a dropdown menu. Each search result should include the
+collection name and the collection owner. The JSON response from the Globus
+API should be parsed to extract the collection name, owner, and endpoint
+id. \linkglobusendpointsearch{Link to API documentation for searching collections}.
+
+\subsection{Selecting a path using the Globus ``Browse Endpoint'' helper page}
+
+Globus provides a ``helper page'' for selecting a path on an Globus collection.
+
 There is a dedicated pop-up window for registering backup devices. It functions
 to collection information from the user about a storage device and its location,
 validate the information, place a ``cookie'' on the backup device to identify it 
@@ -19,4 +35,14 @@ user to select the backup device to use for the transfer.
 
 Backup device data should be stored in a database on the website backend, not in
 the Globus Search index.
+
+First, a Globus endpoint must be identified. The user should be given the option
+to either select a favorite endpoint or search for an endpoint. If the user
+selects a favorite endpoint, the endpoint id will be displayed in a text box
+and the path selection step will be enabled. If the desired endpoint is not
+listed as a favorite, the user can search for the endpoint.
+The user should be prompted to provide
+a string for querying the Globus endpoint search API. The names of the resulting 
+list of endpoints will be displayed in a dropdown listing. The user will select
+the desired endpoint from this list.
 

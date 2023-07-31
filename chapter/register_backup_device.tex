@@ -3,59 +3,89 @@
 \section{Overview}
 
 This chapter will describe the contents of the register backup device pop-up 
-window. This pop-up will facilitate the registration of a new backup device
-for use in the DNASC. It is opened by clicking the ``Register Backup Device''
-button in the ``Create Backup'' subsection of the backups pop-up window.
-Once registered, the backup device will be available to be selected by the
-user as the destination for a backup transfer.
+window. This pop-up collects information from the user about a new backup device 
+and registers it to be available for future backup transfers. It is opened by
+clicking the ``register backup device'' button in the ``create backup'' subsection 
+of the backups pop-up window. Once registered, the backup device should be available 
+to be selected by the user as the destination for a backup transfer.
 
-\subsection{Movitation}
-The registration of backup devices simplifies the transfer process in that the 
-backup device object serves as an abstraction of the Globus endpoint and path 
-which are the transfer destination (or, in the seldom case in which data on 
-a backup device needs to be uploaded, the source).
+\section{Backup device registration}
 
-\section{Register backup device form}
-
-The register backup device pop-up window consists of an interactive form with
-which the user can select, search and input information about a new backup 
-device. The form should contain three sections, each dedicated to collecting 
-one of the following three pieces of information needed to identify and register 
-a backup device.
+The following three pieces of information are needed to identify and register a backup 
+device:
 
 \begin{itemize}\itemsep1pt
     \item Globus Collection
-    \item Path on the Globus Collection. \emph{Given the endpoint id, there should be some 
-    pre-built logic to send the user to app.globus.org to browse the endpoint and 
-    select a path 
-    (https://docs.globus.org/modern-research-data-portal/mrdp-description/).}
+    \item Path on the Globus Collection.
     \item Backup device name (arbitrary string provided by user)
 \end{itemize}
 
-\subsection{Registration Process}
+\section{Contents}
 
-\subsubsection{Step 1: Endpoint selection}
+The contents of the  register backup device pop-up window can be partitioned into three 
+sections: ``Select Globus Collection'', ``Select Device Path'', and ``Backup Device Name''. 
+The pop-up window should contain all three sections in the order listed above, including 
+the section name (formatted as a title) and associated elements. The elements each 
+respective section should contain are described below. At the bottom of the pop-up window
+should be a button labeled ``Register Backup Device''.
 
-First, a Globus endpoint must be identified. The user should be given the option
-to either select a favorite endpoint or search for an endpoint. If the user
-selects a favorite endpoint, the endpoint id will be displayed in a text box
-and the path selection step will be enabled. If the desired endpoint is not
-listed as a favorite, the user can search for the endpoint.
-The user should be prompted to provide
-a string for querying the Globus endpoint search API. The names of the resulting 
-list of endpoints will be displayed in a dropdown listing. The user will select
-the desired endpoint from this list. At this stage, the user should be given the
-opportunity to save this endpoint as a favorite for future use.
+\subsection{Select Globus collection section}
 
-\subsubsection{Step 2: Path selection}
+The following text should be displayed in the ``Select Globus Collection'' section:
 
-Once an endpoint has been selected, the user will be prompted to select a path
-on the endpoint. The user will be redirected to app.globus.org to browse the
-endpoint and select a path. Once a path has been selected, the user will be
-redirected back to the DNASC. The path will be displayed in a text box.
+\vspace{3mm}
+``Select the Globus Collection the new backup device is accessible from.''
+\vspace{3mm}
 
-\subsubsection{Step 3: Name collection}
+\noindent This section consists of two subsection which provide the user with two options for 
+selecting a Globus collection (see below). Once a collection has been selected, the 
+collection name should be displayed in a text box and the user should be given the 
+opportunity to save this collection as a favorite for future use. Initially, the text 
+box should display the string ``None selected''.
 
-Finally, the user will be prompted to provide a name for the backup device. 
-As long as the name is unique, the backup device will be registered.
-This device will be used to identify the backup device in the backups pop-up window.
+\subsubsection{Select a favorite collection}
+
+This subsection consists of a dropdown menu of the user's favorite collections.
+
+\subsubsection{Search for an collection}
+
+This subsection consists of a search box. Each search result should include the collection 
+name and the collection owner.
+
+\subsection{Select device path section}
+
+The following text should be displayed in the select device path section:
+
+\vspace{3mm}
+``Select the path on the Globus Collection to the new backup device.''
+\vspace{3mm}
+
+\noindent To select a path within the collection, the user should be redirected to the
+globus web app to select a path within the collection. The select device path subsection 
+should contain a button labeled ``Select Path on \texttt{collection\_name}'' to redirect 
+the user. Before the actual redirect, a pop-up box should inform the user of the redirect
+and allow the user to cancel or proceed. It may also be necessary to brief the user on the
+purpose of the redirect. Once the user has returned to lsdnasc.byu.edu, the path should be 
+displayed in a text box (if a path was selected). The initial value of this text box should 
+be ``None selected''. If the callback from the Globus web app indicates that the user
+didn't select a path, a pop-up box should inform the user that no path was selected.
+
+\subsection{Name new backup device section}
+
+The name new backup device section should consist of a text box in which the user can
+input a name for the new backup device. The text box should be labeled ``Backup Device
+Name''. As long as the name is unique, the backup device should be registered.
+
+\subsection{Element availability}
+
+\subsubsection{Select Path button}
+
+Because the device path cannot be selected until the Globus collection has been selected,
+the select path button should be disabled until a Globus collection has been selected. A 
+message should be displayed near the button indicating that the button is disabled until 
+a Globus collection has been selected.
+
+\subsubsection{Register button}
+
+The register button should be disabled until a Globus collection, path, and backup device
+name have been selected.

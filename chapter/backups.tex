@@ -11,7 +11,7 @@ The backup pop-up window will facilitate the backing up of sequencing data files
 generated in the DNASC. It should allow the user initiate the copying of
 files associated with the given movie to a backup device selected by the user.
 It should also allow the user to register a new backup device. The pop-up window 
-is opened by clicking the cell in the ``Backup'' column of the movies table for a 
+is opened by clicking the cell in the ``backup'' column of the movies table for a 
 given movie.
 
 \subsection{Backup workflow}
@@ -23,33 +23,32 @@ allows for new backup to replace a previous backup.
 
 \section{Contents}
 
-The contents of the backups pop-up window can be partitioned into three subsections: 
+The contents of the backups pop-up window can be partitioned into three sections: 
 ``Movie Details'', ``Backup Details'', and ``Create Backup''. The pop-up window should 
-display all three subsections in a single listing in the order listed above, including 
-the subsection name (formatted as a title) and contents. The contents of each subsection 
-are described below. 
+display all three sections in the order listed above, including the section name 
+(formatted as a title) and contents. The contents of each section are described below. 
 
-\subsection{Movie Details}
+\subsection{Movie details section}
 
-The movie details subsection consists of the following items:
+The movie details section consists of the following items:
 \begin{itemize}\itemsep1pt
   \item Movie id
   \item Sample name
   \item File size
 \end{itemize}
 
-\subsection{Backup Details}
+\subsection{Backup details section}
 
-The contents of the backup details subsection should should vary depending on 
+The contents of the backup details section should should vary depending on 
 whether or not the movie has been backed up before. If the movie has not been 
-backed up before, the backup details subsection should consist of the following
+backed up before, the backup details section should consist of the following
 string: 
 
 \vspace{3mm}
 ``No backups have been created for this movie.''
 \vspace{3mm}
 
-\noindent If the movie has been backed up before, the Backup Details subsection
+\noindent If the movie has been backed up before, the Backup Details section
 should consist of the following name-value pairs:
 
 \begin{itemize}\itemsep1pt
@@ -57,10 +56,10 @@ should consist of the following name-value pairs:
   \item ``Backup Date'' and the value of movie property \texttt{backup\_date}
 \end{itemize}
 
-\subsection{Create Backup}
+\subsection{Create backup section}
 
-The create backup subsection allows the user to create a backup by setting up the
-copying of the given movie to a given backup device. The subsection should consist 
+The create backup section allows the user to create a backup by setting up the
+copying of the given movie to a given backup device. The section should consist 
 of the following items:
 
 \begin{itemize}\itemsep1pt
@@ -75,7 +74,7 @@ of the following items:
 
 \subsubsection{Element availability}
 
-Due to dependencies between the elements in the create backup subsection, some elements
+Due to dependencies between the elements in the create backup section, some elements
 should not (or can not) be made available until certain conditions are met. All elements 
 should be visible at all times, but some elements should be disabled initially. The 
 conditions under which each respective element should be enabled are as follows:
