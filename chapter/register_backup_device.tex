@@ -4,8 +4,8 @@
 
 This chapter will describe the contents of the register backup device pop-up 
 window. This pop-up should collect information from the user about a new backup device 
-and register it. It is opened by clicking the ``register backup device'' button in 
-the ``create backup'' section of the backups pop-up window. Once registered, the 
+and register it. It is opened by clicking the register backup device button in 
+the create backup section of the backups pop-up window. Once registered, the 
 backup device can be selected by the user as the destination for a backup transfer.
 
 \subsection{Redirection to Globus web app}
@@ -43,9 +43,9 @@ to the Globus web app. The transitions are as follows:
 \begin{itemize}
     \item The initial state is the initial state of the register backup device pop-up window. It
     is not re-entered once it is left.
-    \item The incomplete selection state is entered when the user returns from the Globus web app
+    \item The incomplete selection state is (re)entered when the user returns from the Globus web app
     without having selected all necessary data for registering a backup device.
-    \item The confirm registration state is entered when the user returns from the Globus web app
+    \item The confirm registration state is (re)entered when the user returns from the Globus web app
     having selected all necessary data for registering a backup device.
 \end{itemize}
 
@@ -58,15 +58,14 @@ The initial state of the register backup device pop-up window should consist of 
     \item A button labeled ``Redirect to Globus Web App'' to redirect the user to the helper page.
 \end{itemize}
 
+\subsection{Incomplete selection state}
+
+The incomplete selection state of the register backup device pop-up window should inform 
+the user that they have not selected all necessary data for registering a backup device.
+
+% start here
+
 \subsection{Select device section}
-
-The following text should be displayed in the select device section:
-
-\vspace{3mm}
-``Follow redirection to the Globus web app to select a new backup device. Select a single
-folder representing a device, provide a name for the device then click `Submit' to return 
-to this page.''
-\vspace{3mm}
 
 \noindent To select a new backup device, the user should be redirected to the
 Globus web app where they can select a collection and a folder representing a device. 
