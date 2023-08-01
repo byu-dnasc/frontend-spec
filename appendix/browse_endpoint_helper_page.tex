@@ -1,0 +1,32 @@
+% Appendix: Browse endpoint helper page
+
+\section{The ``Browse Endpoint'' helper page}
+
+Globus provides a ``helper page'' for selecting a path on an Globus collection.
+A user is redirected to this page with a callback URL and other parameters, and
+the response will be a stringified JSON object containing the user's selection.
+Visit the Globus \linkglobusbrowseendpoint{documentation} for more information.
+
+\section{Using the helper page to select a backup device}
+
+\subsection{Query parameters}
+
+These query parameters should be appended to the helper page URL:
+\begin{description}
+    \item[label] The label parameter should be set to the name the user provided 
+    for the new backup device.
+    \item[filelimit] The filelimit parameter should be set to 0 so that the user
+    cannot select files, only directories.
+    \item[folderlimit] The folderlimit parameter should be set to 1 so that the 
+    user can only select one directory.
+\end{description}
+
+\subsection{Response parameters}
+
+These response parameters are returned in a stringified JSON object and should
+be extracted for use in the backup device registration process.
+
+\begin{description}
+    \item[endpoint\_id] This is the id of the collection selected by the user.
+    \item[path] This is the path of the collection selected by the user.
+\end{description}

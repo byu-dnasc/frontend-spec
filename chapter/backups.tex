@@ -60,16 +60,32 @@ should consist of the following name-value pairs:
 
 The create backup section allows the user to create a backup by setting up the
 copying of the given movie to a given backup device. The section should consist 
-of the following items:
+of the following items in the order in which they are listed:
 
 \begin{itemize}\itemsep1pt
-  \item A dropdown selection menu of registered GCP endpoints, labeled ``Endpoint''
-  \item A dropdown selection menu of backup devices available on the selected 
-  endpoint, labeled ``Backup Device''
+  \item A subsection for selecting a Globus collection on which to discover backup
+  devices, labeled ``Select Globus Collection'' (see below)
+  \item A dropdown menu of backup devices available on the selected Globus 
+  collection, labeled ``Backup Device''
   \item A button labeled ``Initiate Transfer'' (see appendix 
   \ref{appendix:createbackup})
   \item A button labeled ``Register Backup Device'' (see chapter 
   \ref{chapter:registerbackupdevice})
+\end{itemize}
+
+\subsubsection{Select Globus collection subsection}
+
+The select Globus collection subsection provides two options to the user for selecting
+a Globus collection on which to discover backup devices. The subsection should consist
+of the following items:
+
+\begin{itemize}\itemsep1pt
+    \item A dropdown menu of the user's favorite collections, labeled ``Favorite
+    Collections''
+    \item \emph{Consider using the browse endpoint helper page instead of searching collections.} 
+    A search box for searching all Globus collections, labeled ``Search
+    Collections''. Each search result should include the collection name and the 
+    collection owner. 
 \end{itemize}
 
 \subsubsection{Element availability}
@@ -80,8 +96,8 @@ should be visible at all times, but some elements should be disabled initially. 
 conditions under which each respective element should be enabled are as follows:
 
 \begin{itemize}\itemsep1pt
-  \item The endpoint selection menu is enabled at all times
-  \item The backup device selection menu is available only when an endpoint has been
+  \item The favorite collection dropdown menu and search collections box are enabled at all times
+  \item The backup device dropdown menu is available only when an collection has been
   selected
   \item The initiate transfer button is available only when a backup device has been
   selected

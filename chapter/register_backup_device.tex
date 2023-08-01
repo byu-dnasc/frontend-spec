@@ -3,89 +3,97 @@
 \section{Overview}
 
 This chapter will describe the contents of the register backup device pop-up 
-window. This pop-up collects information from the user about a new backup device 
-and registers it to be available for future backup transfers. It is opened by
-clicking the ``register backup device'' button in the ``create backup'' subsection 
-of the backups pop-up window. Once registered, the backup device should be available 
-to be selected by the user as the destination for a backup transfer.
+window. This pop-up should collect information from the user about a new backup device 
+and register it. It is opened by clicking the ``register backup device'' button in 
+the ``create backup'' section of the backups pop-up window. Once registered, the 
+backup device can be selected by the user as the destination for a backup transfer.
 
-\section{Backup device registration}
+\subsection{Redirection to Globus web app}
 
-The following three pieces of information are needed to identify and register a backup 
-device:
+The register backup device pop-up window should redirect the user to the 
+\linkglobusbrowseendpoint{browse endpoint ``helper page''} provided by Globus for 
+selecting transfer endpoints. This page enables the user to select a Globus collection
+and a path on the collection representing a device they wish to register as a backup device. 
+Once the user clicks ``Submit'' in the helper page, the user should be redirected back to 
+the register backup device pop-up window. A response from the helper page will contain 
+data about the backup device selected by the user.
 
-\begin{itemize}\itemsep1pt
-    \item Globus Collection
-    \item Path on the Globus Collection.
-    \item Backup device name (arbitrary string provided by user)
+\section{Confirm redirect pop-up\label{sec:confirm-redirect-popup}}
+
+A small pop-up box should appear before the redirect to inform the user of the redirect 
+and allow the user to cancel or proceed. If the user chooses to proceed, the box will change 
+its contents to the following message to brief the user on the purpose of the redirect:
+
+\vspace{3mm}
+``Follow redirection to the Globus web app to select a new backup device. Select a single
+folder representing a device, provide a name for the device then click `Submit' to return 
+to this page.''
+\vspace{3mm}
+
+\section{Register backup device window states}
+
+The register backup device pop-up window should have three states: the initial state,
+the incomplete selection state, and the confirm registration state. 
+
+\subsubsection{State transitions}
+
+Transitions between states occur conditionally after the user returns from being redirected 
+to the Globus web app. The transitions are as follows:
+
+\begin{itemize}
+    \item The initial state is the initial state of the register backup device pop-up window. It
+    is not re-entered once it is left.
+    \item The incomplete selection state is entered when the user returns from the Globus web app
+    without having selected all necessary data for registering a backup device.
+    \item The confirm registration state is entered when the user returns from the Globus web app
+    having selected all necessary data for registering a backup device.
 \end{itemize}
 
-\section{Contents}
+\subsection{Initial state}
 
-The contents of the  register backup device pop-up window can be partitioned into three 
-sections: ``Select Globus Collection'', ``Select Device Path'', and ``Backup Device Name''. 
-The pop-up window should contain all three sections in the order listed above, including 
-the section name (formatted as a title) and associated elements. The elements each 
-respective section should contain are described below. At the bottom of the pop-up window
-should be a button labeled ``Register Backup Device''.
+The initial state of the register backup device pop-up window should consist of two items:
+\begin{itemize}
+    \item The string used to brief the user which is included in the description of the confirm 
+    redirect pop-up (section \ref{sec:confirm-redirect-popup}).
+    \item A button labeled ``Redirect to Globus Web App'' to redirect the user to the helper page.
+\end{itemize}
 
-\subsection{Select Globus collection section}
+\subsection{Select device section}
 
-The following text should be displayed in the ``Select Globus Collection'' section:
-
-\vspace{3mm}
-``Select the Globus Collection the new backup device is accessible from.''
-\vspace{3mm}
-
-\noindent This section consists of two subsection which provide the user with two options for 
-selecting a Globus collection (see below). Once a collection has been selected, the 
-collection name should be displayed in a text box and the user should be given the 
-opportunity to save this collection as a favorite for future use. Initially, the text 
-box should display the string ``None selected''.
-
-\subsubsection{Select a favorite collection}
-
-This subsection consists of a dropdown menu of the user's favorite collections.
-
-\subsubsection{Search for an collection}
-
-This subsection consists of a search box. Each search result should include the collection 
-name and the collection owner.
-
-\subsection{Select device path section}
-
-The following text should be displayed in the select device path section:
+The following text should be displayed in the select device section:
 
 \vspace{3mm}
-``Select the path on the Globus Collection to the new backup device.''
+``Follow redirection to the Globus web app to select a new backup device. Select a single
+folder representing a device, provide a name for the device then click `Submit' to return 
+to this page.''
 \vspace{3mm}
 
-\noindent To select a path within the collection, the user should be redirected to the
-globus web app to select a path within the collection. The select device path subsection 
-should contain a button labeled ``Select Path on \texttt{collection\_name}'' to redirect 
-the user. Before the actual redirect, a pop-up box should inform the user of the redirect
-and allow the user to cancel or proceed. It may also be necessary to brief the user on the
-purpose of the redirect. Once the user has returned to lsdnasc.byu.edu, the path should be 
-displayed in a text box (if a path was selected). The initial value of this text box should 
-be ``None selected''. If the callback from the Globus web app indicates that the user
-didn't select a path, a pop-up box should inform the user that no path was selected.
+\noindent To select a new backup device, the user should be redirected to the
+Globus web app where they can select a collection and a folder representing a device. 
+The select device path subsection should contain a button labeled ``Redirect to Globus Web App'' 
+to redirect the user. Before the actual redirect, a pop-up box 
+should inform the user of the redirect and allow the user to cancel or proceed. 
+\subsection{Confirm registration section}
 
-\subsection{Name new backup device section}
+Once the user has returned from the Globus web app, the confirm registration section should 
+display any and all of the following data in a read-only format:
 
-The name new backup device section should consist of a text box in which the user can
-input a name for the new backup device. The text box should be labeled ``Backup Device
-Name''. As long as the name is unique, the backup device should be registered.
+\begin{itemize}\itemsep1pt
+    \item ``Globus Collection Name: \texttt{globus\_collection\_name}''
+    \item ``Device Path: \texttt{device\_path}''
+    \item ``Backup device name: \texttt{backup\_device\_name}''
+\end{itemize}
 
-\subsection{Element availability}
+\noindent If any of the above data is missing, the confirm registration section should
+include a string to notify the user which data is missing. For example, if the backup device
+name and path are missing, the confirm registration section should contain the following string:
 
-\subsubsection{Select Path button}
+\vspace{3mm}
+``The following information was not collected: backup device name, device path. Please try 
+again by clicking the `Redirect to Globus Web App' button''
+\vspace{3mm}
 
-Because the device path cannot be selected until the Globus collection has been selected,
-the select path button should be disabled until a Globus collection has been selected. A 
-message should be displayed near the button indicating that the button is disabled until 
-a Globus collection has been selected.
+\noindent At the very bottom, the confirm registration section should also contain a button 
+labeled ``Register''. The register button should be disabled until a Globus collection, path, 
+and backup device name have been selected.
 
-\subsubsection{Register button}
-
-The register button should be disabled until a Globus collection, path, and backup device
-name have been selected.
