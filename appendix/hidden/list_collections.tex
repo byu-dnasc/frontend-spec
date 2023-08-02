@@ -1,0 +1,22 @@
+% appendix: list collections
+
+\section{List Collections}
+
+There are multiple instances in the frontend where the user must select a collection.
+This appendix will describe the logic for getting a list of collections.
+
+The \linkglobusgetendpointbyid{get endpoint by id} API is not sufficient 
+for the purposes of this app because GCP endpoints cannot give the app client 
+a role. The list of collections returned by this API is limited to those collections 
+in which the user has a role of administrator or access\_manager.
+
+Another \linkglobusendpointsearch{API} exists for searching collections. It even
+supports scoping the search to only a subset of endpoints that the user has
+some kind of association with.
+
+\begin{itemize}
+    \item The main DNASC collection
+    \item GCP endpoints used by the DNASC for uploading and downloading data
+    in the lab
+    \caption{Types of collections the app should be able to access}
+\end{itemize}

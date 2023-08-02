@@ -2,7 +2,8 @@ import os
 
 # for each appendix in appendix/, add the appendix to the appendices.tex file
 with open('appendices.tex', 'w') as file:
-    for filename in os.listdir('appendix'):
+    filenames = [f for f in os.listdir('appendix') if os.path.isfile(f'{os.getcwd()}/appendix/{f}')]
+    for filename in filenames:
         appendix = filename.split('.')[0]
         label = appendix.replace('_', '')
         appendix = appendix.replace('_', ' ')

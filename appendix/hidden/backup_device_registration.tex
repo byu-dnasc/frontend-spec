@@ -2,16 +2,13 @@
 
 \section{Backup Device Registration}
 
-The register backup device pop-up window contains multiple dynamic elements.
+The register backup device pop-up window contains multiple dynamic elements requiring
+non-trivial implementation.
 
-\subsection{Globus collection search}
-
-A search box is provided for the user to search for Globus collections. The search
-results are displayed in a dropdown menu. Each search result should include the
+include the
 collection name and the collection owner. The JSON response from the Globus
 API should be parsed to extract the collection name, owner, and endpoint
 id. \linkglobusendpointsearch{Link to API documentation for searching collections}.
-
 
 \subsection{Populating the backup device dropdown menu}
 

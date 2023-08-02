@@ -13,8 +13,6 @@ Visit the Globus \linkglobusbrowseendpoint{documentation} for more information.
 
 These query parameters should be appended to the helper page URL:
 \begin{description}
-    \item[label] The label parameter should be set to the name the user provided 
-    for the new backup device.
     \item[filelimit] The filelimit parameter should be set to 0 so that the user
     cannot select files, only directories.
     \item[folderlimit] The folderlimit parameter should be set to 1 so that the 
@@ -29,4 +27,7 @@ be extracted for use in the backup device registration process.
 \begin{description}
     \item[endpoint\_id] This is the id of the collection selected by the user.
     \item[path] This is the path of the collection selected by the user.
+    \item[label] This should be a string entered by the user to be the name
+    assigned to the new backup device. If it is empty, then the user has not
+    entered a name for the backup device.
 \end{description}
