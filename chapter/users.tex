@@ -29,7 +29,8 @@ The current ``Users'' table only needs to be modified to include a ``Globus Id''
 
 On the current site, the only way to add a new user is for the user to register
 themselves using their BYU login. This is not a viable option for external users,
-so new actions need to be added to allow technicians to add and edit external users.
+so new actions need to be added to allow technicians to add and edit external users
+to the database of DNASC users.
 
 \subsection{New External User}
 
@@ -38,9 +39,11 @@ prompt a pop-up window to collect the necessary information. This pop-up window
 could be similar to the existing user registration form, but with the following
 changes:
 \begin{itemize}\itemsep1pt
-    \item A new field ``Globus Id'' should be added to the form. \emph{The Globus web app and
-    CLI both have the ability to look up a user's Globus username, but I can't find
-    any such functionality in the REST API docs.}
+    \item A new field ``Globus Username'' should be added to the form.
+    \item A new field ``One-off'' should be added to the form. This field should be
+    a checkbox or toggle switch. Records of one-off users should be deleted after 
+    one year. A description should be added to the form to explain this:
+    ``One-off users will be automatically deleted after one year.''
     \item The ``Net ID'' field should not be collected. The field could be populated 
     with some default value when displayed (like ``n/a'').
     \item The field ``Department'' should also not be collected. This field could be
