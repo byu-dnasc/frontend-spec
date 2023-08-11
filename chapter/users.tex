@@ -3,11 +3,13 @@
 This chapter will describe modifications and new features that should be added to the
 ``Users'' page of the current DNASC website. The current system that the the users 
 page interacts with should be expanded to include a new type of user (user with role 
-``External'') and a new field for Globus usernames. This will require modifications 
-to the ``New User'' and ``Edit User'' forms and the user table on the users page. Another 
-minor change will be to enable technicians to manage external user information.
-These additions to the users system will support the sharing functionalities introduced 
-by the new features described in this specification. 
+``External'') and a new field for Globus usernames. External user records would not 
+represent actual users of the website, rather they are simply information to be stored 
+for future reference. The addition of these records of external users will support the 
+sharing functionalities introduced by the new features described in this specification.
+These new features will require modifications to the ``New User'' and ``Edit User'' 
+forms and the user table on the users page. Another minor change will be to enable 
+technicians to manage external user information.
 
 \subsection{Discretionary implementation}
 
@@ -36,66 +38,47 @@ open a form which can only be used to collect the information required to create
 external user. The edit and delete user buttons should also become available to 
 technicians, but only for external user records.
 
-\section{Design choices}
-
-\subsubsection{One user form, or two?}
-
-Whether to create two discrete forms for creating external users and other
-users, or to create a single form for creating all users.
-
-\subsubsection{One button, or two?}
-
-This question may rely on the answer to the previous question.
-Whether to create a separate button for creating external users, or to
-use a single ``New User'' button for all users.
-
 \section{External user forms}
 
 The following fields are the only ones that should be collected for external users:
-
 \begin{itemize}\itemsep1pt
     \item Firstname
     \item Lastname
     \item Email
     \item Globus username
 \end{itemize}
+The rest of the fields in the user model should display a default value like ``n/a'',
+except for the role field, which should be set to ``External''.
 
-\section{External user registration pop-up window}
+\section{Design choices}
 
-A new pop-up window should be created consisting of a form to collect the information 
-to create a new external user. This pop-up window could be similar to the existing user 
-registration form, but with the following differences:
+\subsection{One user form, or two?}
 
-Firstname, lastname, email, Globus username
+The current new user form (currently only available to system administrators) can be 
+used to create a user with any role. However, technicians should not be given access 
+to this form, at least not without modifications. An alternative to this would be to 
+create a second form which only collected the information required to create an external 
+user. This form would be available to technicians and system administrators.
+It is left to the discretion of the web development team to decide whether to create
+a second form which can only be used to create external users, or to modify the existing
+form such that, when accessed by a technician, it only allows the creation of external
+users. In the case of the latter option, the current new user form would need to be 
+modified to include a field for Globus username, as well as to include ``External'' 
+as a possible value for the role field. In both cases, all users should have a field
+for Globus username.
+
+\subsection{One button, or two?}
+
+This question is only relevant if the answer to the first question is two forms.
+If there are two forms (one for creating only external users, and one for creating 
+any type of user), then there would be the opportunity for two buttons:
 \begin{itemize}\itemsep1pt
-    \item A new field ``Globus Username'' should be added to the form.
-    \item A new field ``One-off'' should be added to the form. This field should be
-    a checkbox or toggle switch. Records of one-off users should be automatically 
-    deleted after one year. A description should be added to the form to explain this:
-    ``One-off users will be automatically deleted after one year.''
-    \item The ``Net ID'' field should not be collected. The field could be populated 
-    with some default value when displayed (like ``n/a'').
-    \item The field ``Department'' should also not be collected. This field could be
-    populated with some default value when displayed (like ``n/a'').
-    \item The value of the ``Role'' field should be automatically populated with 
-    ``External''.
+    \item A ``New User'' button which opens the form for creating any type of user.
+    \item A ``New External User'' button which opens the form for creating only 
+    external users.
 \end{itemize}
-
-\subsection{Edit user}
-
-Technicians should be able to edit the information of external users.
-
-The edit user action is already implemented. However, it is currently only available
-to the user who is to be edited. This action needs to be made available to all 
-technicians for all external users. Additionally, the edit user pop-up should include 
-a new button to allow technicians to delete external users.
-
-\section{Future improvement}
-The current user registration system is integrated with BYU's central 
-authentication system (CAS). This means that external users are currently not 
-able to create accounts. However, this could be a useful feature in the future 
-if it became desirable for external users to create their own account with the DNASC.
-For now, though, it seems that requiring external users to register themselves with 
-the DNASC via the website would too tedious for the mere purpose of collecting their
-Globus username.
-
+Or, a single button could be used which would open a different form depending on the
+role of the user who clicked the button. Either way, only one button would be available 
+to technicians. Having only one button would allow for a simpler user interface. But if 
+having two buttons would be significantly easier to implement, then that would be 
+acceptable.
