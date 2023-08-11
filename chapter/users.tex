@@ -1,48 +1,77 @@
 \section{Overview}
 
-The current users page will be adapted to help technicians share data with 
-external DNASC users.
+This chapter will describe modifications and new features that should be added to the
+``Users'' page of the current DNASC website. The current system that the the users 
+page interacts with should be expanded to include a new type of user (user with role 
+``External'') and a new field for Globus usernames. This will require modifications 
+to the ``New User'' and ``Edit User'' forms and the user table on the users page. Another 
+minor change will be to enable technicians to manage external user information.
+These additions to the users system will support the sharing functionalities introduced 
+by the new features described in this specification. 
 
-The current website facilitates the provision of services to internal DNASC users 
-by maintaining user accounts. This feature can be adapted to provide technicians
-with a database of the Globus usernames of DNASC users. This new resource will be
-drawn upon by logic in the movies page to facilitate the sharing of data with 
-external DNASC users.
+\subsection{Discretionary implementation}
 
-\section{Adapting the existing user management system}
+Several decisions regarding the implementation of the new features described in this 
+chapter should be made by the web development team due to the superior information and 
+expertise at their disposal. This chapter will first describe the essential features 
+that must be implemented. Then, it will discuss design choices that will be left to the 
+discretion of the web development team.
 
-In addition to the creation of new actions, the existing code (i.e. the user 
-registration form, database logic) needs to be modified to accommodate a 
-single new field in the user table. The new field will be called ``Globus Id'' and 
-will be used to store the Globus username of the user.
+\section{Essential features}
 
-The current user registration form is only accessible to internal DNASC users.
-Because internal DNASC users are entitled to their own account with BYU ORC, it is 
-doubtful that an internal user would want to use Globus to access their DNASC data. 
-Therefore, the ``Globus Id'' field should not be collected by the user registration form.
+\subsection{Data model changes}
 
-\section{Table}
+The user data model should be modified to include:
+\begin{itemize}\itemsep1pt
+    \item A new field ``Globus Username''. This field should be required for 
+external users, but optional to all others.
+    \item A new role ``External'' should be added to the existing set of values
+    available for the role field.
+\end{itemize}
 
-The current ``Users'' table only needs to be modified to include a ``Globus Id'' column.
+\subsection{Actions available to technicians}
 
-\section{Actions}
+The ``New User'' button should become available to all technicians. However, it should
+open a form which can only be used to collect the information required to create an
+external user. The edit and delete user buttons should also become available to 
+technicians, but only for external user records.
 
-On the current site, the only way to add a new user is for the user to register
-themselves using their BYU login. This is not a viable option for external users,
-so new actions need to be added to allow technicians to add and edit external users
-to the database of DNASC users.
+\section{Design choices}
 
-\subsection{New External User}
+\subsubsection{One user form, or two?}
 
-The current page needs to be modified to include a ``New External User'' button to
-prompt a pop-up window to collect the necessary information. This pop-up window
-could be similar to the existing user registration form, but with the following
-changes:
+Whether to create two discrete forms for creating external users and other
+users, or to create a single form for creating all users.
+
+\subsubsection{One button, or two?}
+
+This question may rely on the answer to the previous question.
+Whether to create a separate button for creating external users, or to
+use a single ``New User'' button for all users.
+
+\section{External user forms}
+
+The following fields are the only ones that should be collected for external users:
+
+\begin{itemize}\itemsep1pt
+    \item Firstname
+    \item Lastname
+    \item Email
+    \item Globus username
+\end{itemize}
+
+\section{External user registration pop-up window}
+
+A new pop-up window should be created consisting of a form to collect the information 
+to create a new external user. This pop-up window could be similar to the existing user 
+registration form, but with the following differences:
+
+Firstname, lastname, email, Globus username
 \begin{itemize}\itemsep1pt
     \item A new field ``Globus Username'' should be added to the form.
     \item A new field ``One-off'' should be added to the form. This field should be
-    a checkbox or toggle switch. Records of one-off users should be deleted after 
-    one year. A description should be added to the form to explain this:
+    a checkbox or toggle switch. Records of one-off users should be automatically 
+    deleted after one year. A description should be added to the form to explain this:
     ``One-off users will be automatically deleted after one year.''
     \item The ``Net ID'' field should not be collected. The field could be populated 
     with some default value when displayed (like ``n/a'').
@@ -54,10 +83,12 @@ changes:
 
 \subsection{Edit user}
 
+Technicians should be able to edit the information of external users.
+
 The edit user action is already implemented. However, it is currently only available
 to the user who is to be edited. This action needs to be made available to all 
-technicians and system admins for all external users. Additionally, the edit user
-pop-up should include a new button to allow technicians to delete external users.
+technicians for all external users. Additionally, the edit user pop-up should include 
+a new button to allow technicians to delete external users.
 
 \section{Future improvement}
 The current user registration system is integrated with BYU's central 
