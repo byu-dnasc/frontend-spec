@@ -2,35 +2,51 @@
 
 \section{Overview}
 
-This chapter will describe the purpose and contents of the sharing pop-up window. This 
-pop-up allows the user to share the given movie with a DNASC user. It also lists 
-DNASC users who have access to the given movie and gives the website user the opportunity 
-revoke a DNASC user's access. This pop-up window should be opened by clicking a cell in 
-the ``users with access'' column of the movies table.
+This chapter will describe the contents of the sharing pop-up window. This pop-up allows 
+the user to share the given movie with a Globus user. It also lists Globus users who 
+have access to the given movie and gives the website user the opportunity revoke a 
+Globus user's access. This pop-up window should be opened by clicking a cell in 
+the ``Shares'' column of the movies table.
 
 \section{Content}
 
-The sharing pop-up window should contain a listing of users who have access to the movie,
-a search bar for selecting a registered DNASC user to share the movie with, a button to 
-share the movie with the selected DNASC user.
+The sharing pop-up window should consist of two sections: one containing a listing of
+Globus users who have access to the movie and one for sharing the movie with a new
+Globus user. 
 
-\subsection{Users with access listing}
+\subsection{Users with access section}
 
-The sharing pop-up should contain a listing of DNASC users who have access to the movie.
-This listing should also provide a way to select a user whose access should be revoked. 
-The listing should contain the following fields:
+The users with access section should contain a listing of Globus users who have access 
+to the movie. This listing should also provide a way to select a user whose access should 
+be revoked. The listing should contain the following elements:
 
 \begin{itemize}\itemsep1pt
-    \item The name of the user
+    \item The name of the user (only if the user is a registered DNASC user)
     \item The user's Globus ID
     \item The date the user was granted access
-    \item A button to revoke access (optional depending on implementation)
+    \item A button to revoke access
 \end{itemize}
 
-\subsection{Share movie button}
+\subsection{Share section}
 
-The sharing pop-up should contain a search bar for selecting a registered DNASC user 
-who should receive access to the given movie. Once a user is selected, the movie is
-shared with the selected user by pressing the share movie button. The share movie button 
-should be disabled (but visible) until a user is selected. See appendix 
-\ref{appendix:sharemovie} for implementation details.
+The share section requires the user to provide a Globus username to share the movie with.
+It offers a search feature of DNASC users with Globus usernames.
+
+\subsubsection{DNASC user search bar}
+
+The share section should contain a search bar which allows the user to search the DNASC
+database for users by name. The results should only be DNASC users who have Globus
+usernames. Selecting a result should populate the Globus username field with the selected
+user's Globus username. 
+
+\subsubsection{Globus username field}
+
+The share section should contain a text field to allow the user to enter a Globus
+username. The user can edit the field directly, or select a DNASC user from the search 
+results, which will populate the field automatically.
+
+\subsubsection{Share movie button}
+
+The share section should contain a button which shares the movie with the Globus user.
+The share movie button should be disabled (but visible) until a user is selected.
+See appendix \ref{appendix:sharemovie} for implementation details.

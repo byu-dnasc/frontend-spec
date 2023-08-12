@@ -49,7 +49,7 @@
         },
         "num_shares": {
             "description": "The number of access rules granting access to this movie's path",
-            "name": "users with access", 
+            "name": "shares", 
             "type": "integer",
             "pop-up window": "sharing of movie movie_id",
             "in_table": true,
