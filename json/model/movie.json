@@ -27,8 +27,10 @@
         },
         "user_name": {
             "description": "The name of user who submitted the movie", 
-            "name": "submitted by", 
+            "name": "submitted by",
             "type": "string",
+            "pop-up window": "assign user to movie movie_id",
+            "pop-up label": "Assign user",
             "in_table": true
         },
         "instrument_name": {
@@ -52,6 +54,7 @@
             "name": "shares", 
             "type": "integer",
             "pop-up window": "sharing of movie movie_id",
+            "pop-up label": "`Share movie' if num_shares = 0, num_shares if num_shares > 0",
             "in_table": true,
             "valid_offline": false
         },
@@ -67,6 +70,7 @@
             "name": "backup", 
             "type": "string",
             "pop-up window": "Back up movie movie_id",
+            "valid_offline": false,
             "in_table": true
         },
         "backup_date": {

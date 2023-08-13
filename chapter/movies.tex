@@ -2,7 +2,7 @@
 
 \section{Overview}
 
-This chapter will describe the movies page, a new page which will be added to the internal 
+This chapter will describe the movies page, a new page which will be added to the
 DNASC website. The movies page will allow users to browse information about sequencing datasets 
 (called ``movies'') presented as rows in a table. In addition to displaying data, some of the 
 cells in these rows will serve as buttons to open pop-up windows. Each pop-up will present 
@@ -12,20 +12,22 @@ in more detail in subsequent chapters.
 
 \subsubsection{Movies page accessibility}
 
-The movies page will be accessible from the toolbar of \texttt{lsdnasc.byu.edu}.
+The movies page should be accessible from the toolbar of \texttt{lsdnasc.byu.edu}. It should
+only be accessible to users with the ``Technician''or ``System Administrator'' role. This goes 
+for the movies page as well as all of its associated pop-up windows.
 
 \section{Content}
 
-The movies page should contain a table and table filters (i.e. switches to toggle special 
-filters described in this chapter).
+The movies page should contain a table and filter buttons to toggle special filters described 
+in this chapter.
 
 \subsection{Movies Table}
 
 The movies table should have a column for each of the properties shown in figure 
 \ref{figure:moviestable}. These properties belong to the movie object (see appendix 
-\ref{appendix:models} for details on the movie object and others). Figure 
-\ref{figure:moviestable} also indicates which columns serve as buttons to open pop-up 
-windows. Rows of movie data should be sorted by run date.
+\ref{appendix:models} for details on the movie object). Figure \ref{figure:moviestable} 
+also indicates which columns serve as buttons to open pop-up windows. Rows of movie data 
+should be sorted by run date.
 
 \begin{table}[h]
     \input{table/movie_table_details.tex}
@@ -33,11 +35,30 @@ windows. Rows of movie data should be sorted by run date.
     \label{figure:moviestable}
 \end{table}
 
+\subsubsection{Default values}
+
+Cells contain the value of the movie property they represent, unless otherwise specified in
+this section. The following columns contain cells which display a different value when the movie 
+property they represent is set to ``None'' or zero.
+\begin{itemize}
+    \item The value of a cell in the submitted by column should be ``Assign User''
+    when the value of \texttt{user\_name} is ``None''.
+    \item The value of a cell in the sharing column should be ``Share'' when the
+    value of \texttt{is\_online} is \texttt{True} and the value of \texttt{num\_shares} is zero.
+    \item The value of a cell in the backup column should be ``Backup'' when the
+    value of \texttt{is\_online} is \texttt{True} and the value of \texttt{backup\_device} is ``None''.
+\end{itemize}
+
 \subsubsection{Pop-up availability}
 
 It is only possible to share or back up a movie if the movie is available in the DNASC Globus
 collection. Therefore, if the movie is not available, the share and backup buttons should be
 unavailable. Such movies have the value of \texttt{is\_online} set to ``False''.
+
+\begin{itemize}
+    \item If the movie is offline, the share and backup buttons should be disabled.
+    \item If \texttt{user\_name} is not ``None'', the assign user button should be disabled.
+\end{itemize}
 
 \subsubsection{Field applicability}
 
@@ -49,8 +70,7 @@ of ``n/a''.
 
 In addition to the generic filtering and search functionality provided with other tables on the
 current DNASC webpages, the following filters should be implemented to assist with the essential 
-DNASC tasks of sharing and backing up movie files. These filters are either engaged or not, and 
-therefore could be implemented as a checkbox or switch that toggles the filter on and off.
+DNASC tasks of sharing and backing up movie files:
 
 \subsubsection{Awaiting Backup}
 
@@ -60,8 +80,11 @@ Such movies are identifiable by the fact that the value of \texttt{backup\_devic
 \subsubsection{Awaiting Sharing}
 
 A filter should be provided to show only movies to which no DNASC user has access. Such movies 
-fulfill two conditions:
-\begin{enumerate}\itemsep1pt
-    \item The user designated by \texttt{user\_name} is not internal (i.e. no netid), and:
-    \item There is no access rule associated with the movie in question
-\end{enumerate}
+fulfill one these two conditions:
+\begin{itemize}\itemsep1pt
+    \item The value of \texttt{user\_name} is ``None'', OR:
+    \item There is no access rule associated with the movie and the role of the user associated 
+    with the access rule is ``External''.
+\end{itemize}
+
+\noindent Additionally, the filter should only show movies which are online.
