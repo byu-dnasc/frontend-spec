@@ -1,22 +1,22 @@
 % chapter: movie details
-
+% maybe have the movie details pop-up display info about the analyses available for the movie
 \section{Overview}
 
 This chapter will describe the contents of the Movie Details pop-up window. This pop-up
-window allows technicians to browse information about a single movie. This pop-up window 
-is opened by clicking on a movie ID in the Movies table.
+window allows technicians to browse additional details about a movie.
+This pop-up window is opened by clicking on a movie ID in the Movies table.
 
-\section{Movie details listing}
+\section{Content}
 
-The movie details pop-up window should contain a listing of properties (i.e. both 
-names and values) of the given movie object. Not all properties are to be displayed
-for all movies depending on whether or not the movie is online.
+The movie details pop-up window should contain a listing of movie details.
 
-\subsubsection{Applicable properties}
+\subsection{Movie details listing}
 
-Some properties are not applicable to movies 
-which are no longer online (i.e. not available in the DNASC Globus collection). For properties
-where this is the case, the property should not be displayed. However, if the movie is online,
-then all movie properties should be displayed. The JSON definition of the movie object 
-contains a flag \texttt{valid\_offline} to indicate whether a given property is applicable
-to offline movies.
+The movie details pop-up window should contain a listing of a subset of the properties 
+(i.e. both names and values) of the \texttt{movie} object. This subset excludes the
+following properties:
+\begin{itemize}\itemsep1pt
+    \item \texttt{num\_shares}
+    \item \texttt{backup\_device}
+    \item \texttt{backup\_date}
+\end{itemize}
