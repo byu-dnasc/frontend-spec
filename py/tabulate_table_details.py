@@ -18,18 +18,15 @@ def tabulate_table_details(file_name):
             # capitalize words that are not property names
             title_name = [word.title() if word not in data['properties'].keys() else word for word in popup_name.split(' ')]
             popup_name = ' '.join(title_name)
-        valid_offline = 'True'
-        if 'valid_offline' in item.keys():
-            valid_offline = 'False'
         column_name = item['name'].title()
-        table_data.append([column_name, property_name, popup_name, valid_offline])
+        table_data.append([column_name, property_name, popup_name])
 
     # Generate LaTeX code for the table
-    headers = ["Column Name", "Property Name", "Pop-up Window", "Valid Offline"]
+    headers = ["Column Name", "Property Name", "Clicking Text Opens Pop-up"]
     table_code = tabulate(table_data, headers=headers, tablefmt='latex_booktabs')
 
-    table_code = table_code.replace(r'{tabular}', r'{tabularx}', 2)
-    table_code = table_code.replace(r'{llll}', r'{\textwidth}{X|l|X|l}', 1)
+    #table_code = table_code.replace(r'{tabular}', r'{tabularx}', 2)
+    #table_code = table_code.replace(r'{lll}', r'{\textwidth}{l|l|X}', 1)
 
     # enclose all property names in \texttt{}
     for property_name in data['properties'].keys():

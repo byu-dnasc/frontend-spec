@@ -2,28 +2,24 @@
 
 \section{Overview}
 
-\vspace{3mm}
-\emph{``The cloud is just someone else's computer.'' -Anonymous}
-\vspace{3mm}
-
 \noindent This chapter will describe the contents of the backup pop-up window.
 The backup pop-up window will facilitate the backing up of sequencing data files 
 generated in the DNASC. It should allow the user initiate the copying of
-files associated with the given movie to a backup device selected by the user.
+files associated with the movie to a backup device selected by the user.
 It should also allow the user to register a new backup device. The pop-up window 
 is opened by clicking the cell in the ``backup'' column of the movies table for a 
 given movie.
 
 \subsection{Backup workflow}
 Movie files are initially stored on systems administered by the BYU Office of 
-Research Computing (ORC). An essential task for DNASC technicians is to copy primary 
-movie files from ORC storage to local hard drives. Once backed up, the files can be 
+Research Computing (ORC). An essential task for DNASC technicians is to copy sequencing 
+data files from ORC storage to local hard drives. Once backed up, the files can be 
 removed from ORC storage to free up space. Note that the workflow as described below
 allows for new backup to replace a previous backup.
 
 \section{Content}
 
-The contents of the backups pop-up window can be partitioned into three sections: 
+The contents of the backup pop-up window can be partitioned into three sections: 
 ``Movie Details'', ``Backup Details'', and ``Create Backup''. The pop-up window should 
 display all three sections in the order listed above, including the section name 
 (formatted as a title) and contents. The contents of each section are described below. 
@@ -39,7 +35,7 @@ The movie details section consists of the following items:
 
 \subsection{Backup details section}
 
-The contents of the backup details section should should vary depending on 
+The contents of the backup details section should vary depending on 
 whether or not the movie has been backed up before. If the movie has not been 
 backed up before, the backup details section should consist of the following
 string: 
@@ -49,11 +45,11 @@ string:
 \vspace{3mm}
 
 \noindent If the movie has been backed up before, the Backup Details section
-should consist of the following name-value pairs:
+should consist of the following name-value pairs belonging to the \texttt{movie} object:
 
 \begin{itemize}\itemsep1pt
-  \item ``Backup Device'' and the value of movie property \texttt{backup\_device}
-  \item ``Backup Date'' and the value of movie property \texttt{backup\_date}
+  \item ``Backup Device: \texttt{backup\_device}''
+  \item ``Backup Date: \texttt{backup\_date}'' 
 \end{itemize}
 
 \subsection{Create backup section}
@@ -64,13 +60,11 @@ of the following items in the order in which they are listed:
 
 \begin{itemize}\itemsep1pt
   \item A subsection for selecting a Globus collection on which to discover backup
-  devices, labeled ``Select Globus Collection'' (see below)
+  devices, labeled ``Select Globus Collection'' (see below).
   \item A dropdown menu of backup devices available on the selected Globus 
-  collection, labeled ``Backup Device''
-  \item A button labeled ``Initiate Transfer'' (see appendix 
-  \ref{appendix:createbackup})
-  \item A button labeled ``Register Backup Device'' (see chapter 
-  \ref{chapter:registerbackupdevice})
+  collection, labeled ``Backup Device''.
+  \item A button labeled ``Initiate Transfer''.
+  \item A button labeled ``Register Backup Device''.
 \end{itemize}
 
 \subsubsection{Select Globus collection subsection}

@@ -37,9 +37,9 @@
             "name": "instrument", 
             "type": "string"
         },
-        "sample_type": {
-            "description": "\"HiFi\" (default), \"Iso-Seq\", \"MAS-Seq\", or \"Amplicons\"",
-            "name": "sample type", 
+        "application": {
+            "description": "\"HiFi\" (default), \"Iso-Seq\", \"MAS-Seq\", \"Amplicons\", or \"CLR\"",
+            "name": "application", 
             "type": "string"
         },
         "sample_name": {
